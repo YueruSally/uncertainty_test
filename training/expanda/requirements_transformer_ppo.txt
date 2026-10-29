@@ -1,0 +1,9 @@
+# Install only after auditing the server's existing Python/CUDA environment.
+# The exact torch build must match the installed NVIDIA driver/CUDA runtime.
+torch
+numpy
+scipy
+pandas
+scikit-learn
+openpyxl
+matplotlib
