@@ -1,0 +1,1055 @@
+  "completed": true,
+  "definition": "matched frozen-CCP replace timing/probability grid: BASE, REPLACE_G10_P100, REPLACE_G10_JOINT_EXTREME, REPLACE_G10_JOINT_BALANCED, REPLACE_G10_JOINT_PARETO",
+  "instance_count": 10,
+  "algorithm_seed_count": 3,
+  "run_count": 150,
+  "status_counts": {
+    "existing": 60,
+    "complete": 90
+  },
+  "scenario_exact": true,
+  "strategies": [
+    {
+      "strategy": "BASE",
+      "runs": 30,
+      "mean_paired_percent": 0.0,
+      "standard_deviation_paired_percent": 0.0,
+      "standard_error_paired_percent": 0.0,
+      "mean_95ci_low": 0.0,
+      "mean_95ci_high": 0.0,
+      "median_paired_percent": 0.0,
+      "minimum_paired_percent": 0.0,
+      "maximum_paired_percent": 0.0,
+      "wins": 0,
+      "win_fraction": 0.0,
+      "ties": 30,
+      "losses": 0,
+      "runs_above_5_percent": 0,
+      "runs_above_10_percent": 0,
+      "mean_forced_events": 0.0,
+      "positive_probes": 0,
+      "probe_attempts": 0,
+      "probe_fallbacks": 0,
+      "probe_evaluations": 0,
+      "forced_operator_best_of": 1,
+      "forced_replace_selector": "base_random",
+      "mean_candidate_evaluations": 0.0
+    },
+    {
+      "strategy": "REPLACE_G10_P100",
+      "runs": 30,
+      "mean_paired_percent": 3.7571092821862857,
+      "standard_deviation_paired_percent": 5.772412903798608,
+      "standard_error_paired_percent": 1.0538935862147987,
+      "mean_95ci_low": 1.6914778532052805,
+      "mean_95ci_high": 5.822740711167291,
+      "median_paired_percent": 2.752549775539052,
+      "minimum_paired_percent": -6.876289675586264,
+      "maximum_paired_percent": 15.706212217040601,
+      "wins": 20,
+      "win_fraction": 0.6666666666666666,
+      "ties": 0,
+      "losses": 10,
+      "runs_above_5_percent": 10,
+      "runs_above_10_percent": 5,
+      "mean_forced_events": 27.066666666666666,
+      "positive_probes": 0,
+      "probe_attempts": 0,
+      "probe_fallbacks": 0,
+      "probe_evaluations": 0,
+      "forced_operator_best_of": 1,
+      "forced_replace_selector": "base_random",
+      "mean_candidate_evaluations": 0.0
+    },
+    {
+      "strategy": "REPLACE_G10_JOINT_EXTREME",
+      "runs": 30,
+      "mean_paired_percent": 12.131519233655096,
+      "standard_deviation_paired_percent": 12.853592627926846,
+      "standard_error_paired_percent": 2.3467342090992136,
+      "mean_95ci_low": 7.531920183820637,
+      "mean_95ci_high": 16.731118283489554,
+      "median_paired_percent": 5.502037800398897,
+      "minimum_paired_percent": -0.4525668388042038,
+      "maximum_paired_percent": 49.765484844454086,
+      "wins": 29,
+      "win_fraction": 0.9666666666666667,
+      "ties": 0,
+      "losses": 1,
+      "runs_above_5_percent": 16,
+      "runs_above_10_percent": 14,
+      "mean_forced_events": 27.566666666666666,
+      "positive_probes": 0,
+      "probe_attempts": 0,
+      "probe_fallbacks": 0,
+      "probe_evaluations": 0,
+      "forced_operator_best_of": 1,
+      "forced_replace_selector": "joint_extreme_cycle",
+      "mean_candidate_evaluations": 0.0
+    },
+    {
+      "strategy": "REPLACE_G10_JOINT_BALANCED",
+      "runs": 30,
+      "mean_paired_percent": 14.194669950867885,
+      "standard_deviation_paired_percent": 13.630102179861014,
+      "standard_error_paired_percent": 2.4885048083367383,
+      "mean_95ci_low": 9.317200526527877,
+      "mean_95ci_high": 19.072139375207893,
+      "median_paired_percent": 14.070660443084373,
+      "minimum_paired_percent": -0.6095401034094463,
+      "maximum_paired_percent": 58.494359107426924,
+      "wins": 28,
+      "win_fraction": 0.9333333333333333,
+      "ties": 1,
+      "losses": 1,
+      "runs_above_5_percent": 21,
+      "runs_above_10_percent": 16,
+      "mean_forced_events": 27.2,
+      "positive_probes": 0,
+      "probe_attempts": 0,
+      "probe_fallbacks": 0,
+      "probe_evaluations": 0,
+      "forced_operator_best_of": 1,
+      "forced_replace_selector": "joint_balanced",
+      "mean_candidate_evaluations": 0.0
+    },
+    {
+      "strategy": "REPLACE_G10_JOINT_PARETO",
+      "runs": 30,
+      "mean_paired_percent": 10.993393887899554,
+      "standard_deviation_paired_percent": 12.636818464203369,
+      "standard_error_paired_percent": 2.307156842647325,
+      "mean_95ci_low": 6.471366476310798,
+      "mean_95ci_high": 15.51542129948831,
+      "median_paired_percent": 5.6506298000715915,
+      "minimum_paired_percent": -0.7322834055880311,
+      "maximum_paired_percent": 56.45245796328883,
+      "wins": 28,
+      "win_fraction": 0.9333333333333333,
+      "ties": 0,
+      "losses": 2,
+      "runs_above_5_percent": 15,
+      "runs_above_10_percent": 12,
+      "mean_forced_events": 26.4,
+      "positive_probes": 0,
+      "probe_attempts": 0,
+      "probe_fallbacks": 0,
+      "probe_evaluations": 0,
+      "forced_operator_best_of": 1,
+      "forced_replace_selector": "joint_pareto_cycle",
+      "mean_candidate_evaluations": 0.0
+    }
+  ],
+  "per_instance": [
+    {
+      "instance": "S0_002",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.9867762720369343,
+            -1.4198646528316718,
+            0.09963058372363535
+          ],
+          "mean_paired_percent": -0.7690034470483237,
+          "median_paired_percent": -0.9867762720369343,
+          "minimum_paired_percent": -1.4198646528316718,
+          "maximum_paired_percent": 0.09963058372363535,
+          "wins": 1,
+          "ties": 0,
+          "losses": 2
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            0.13013049033480822,
+            2.734268879875594,
+            1.5633093149934727
+          ],
+          "mean_paired_percent": 1.4759028950679582,
+          "median_paired_percent": 1.5633093149934727,
+          "minimum_paired_percent": 0.13013049033480822,
+          "maximum_paired_percent": 2.734268879875594,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            3.548561536687042,
+            5.917876826969326,
+            6.107839799818183
+          ],
+          "mean_paired_percent": 5.191426054491517,
+          "median_paired_percent": 5.917876826969326,
+          "minimum_paired_percent": 3.548561536687042,
+          "maximum_paired_percent": 6.107839799818183,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            3.731544231959556,
+            1.8042581914142357,
+            2.3229741566869335
+          ],
+          "mean_paired_percent": 2.6195921933535753,
+          "median_paired_percent": 2.3229741566869335,
+          "minimum_paired_percent": 1.8042581914142357,
+          "maximum_paired_percent": 3.731544231959556,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_005",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            4.96210578579628,
+            2.9863217121464394,
+            13.841777177377907
+          ],
+          "mean_paired_percent": 7.263401558440209,
+          "median_paired_percent": 4.96210578579628,
+          "minimum_paired_percent": 2.9863217121464394,
+          "maximum_paired_percent": 13.841777177377907,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            20.586740685253407,
+            18.767354749326724,
+            32.63720484399596
+          ],
+          "mean_paired_percent": 23.997100092858698,
+          "median_paired_percent": 20.586740685253407,
+          "minimum_paired_percent": 18.767354749326724,
+          "maximum_paired_percent": 32.63720484399596,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            19.161333600097784,
+            24.58665140769395,
+            19.838790229755787
+          ],
+          "mean_paired_percent": 21.195591745849175,
+          "median_paired_percent": 19.838790229755787,
+          "minimum_paired_percent": 19.161333600097784,
+          "maximum_paired_percent": 24.58665140769395,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            31.16479090327497,
+            16.705729996619986,
+            31.569944429046668
+          ],
+          "mean_paired_percent": 26.48015510964721,
+          "median_paired_percent": 31.16479090327497,
+          "minimum_paired_percent": 16.705729996619986,
+          "maximum_paired_percent": 31.569944429046668,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_006",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            -3.7994618613076563,
+            6.617281808849973,
+            9.402131118120225
+          ],
+          "mean_paired_percent": 4.073317021887514,
+          "median_paired_percent": 6.617281808849973,
+          "minimum_paired_percent": -3.7994618613076563,
+          "maximum_paired_percent": 9.402131118120225,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            35.7032945789296,
+            22.56660013611151,
+            5.681468952499209
+          ],
+          "mean_paired_percent": 21.31712122251344,
+          "median_paired_percent": 22.56660013611151,
+          "minimum_paired_percent": 5.681468952499209,
+          "maximum_paired_percent": 35.7032945789296,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            19.233098710479624,
+            26.47388912988978,
+            14.318892834934157
+          ],
+          "mean_paired_percent": 20.008626891767854,
+          "median_paired_percent": 19.233098710479624,
+          "minimum_paired_percent": 14.318892834934157,
+          "maximum_paired_percent": 26.47388912988978,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            17.869056640562125,
+            25.67365832686389,
+            9.090473346743035
+          ],
+          "mean_paired_percent": 17.544396104723017,
+          "median_paired_percent": 17.869056640562125,
+          "minimum_paired_percent": 9.090473346743035,
+          "maximum_paired_percent": 25.67365832686389,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_007",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            4.119539224382647,
+            0.8281350440399278,
+            -0.7139829642601252
+          ],
+          "mean_paired_percent": 1.4112304347208167,
+          "median_paired_percent": 0.8281350440399278,
+          "minimum_paired_percent": -0.7139829642601252,
+          "maximum_paired_percent": 4.119539224382647,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            3.640524989363684,
+            0.5033631418758181,
+            3.5907934666309713
+          ],
+          "mean_paired_percent": 2.5782271992901578,
+          "median_paired_percent": 3.5907934666309713,
+          "minimum_paired_percent": 0.5033631418758181,
+          "maximum_paired_percent": 3.640524989363684,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            5.008897624773609,
+            0.8491284757591127,
+            6.960356582685441
+          ],
+          "mean_paired_percent": 4.2727942277393876,
+          "median_paired_percent": 5.008897624773609,
+          "minimum_paired_percent": 0.8491284757591127,
+          "maximum_paired_percent": 6.960356582685441,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            3.539734042947165,
+            -0.1881013967272105,
+            0.7106710355437668
+          ],
+          "mean_paired_percent": 1.3541012272545736,
+          "median_paired_percent": 0.7106710355437668,
+          "minimum_paired_percent": -0.1881013967272105,
+          "maximum_paired_percent": 3.539734042947165,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "instance": "S0_008",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            -6.876289675586264,
+            12.237580466642946,
+            -0.39412675487309373
+          ],
+          "mean_paired_percent": 1.6557213453945294,
+          "median_paired_percent": -0.39412675487309373,
+          "minimum_paired_percent": -6.876289675586264,
+          "maximum_paired_percent": 12.237580466642946,
+          "wins": 1,
+          "ties": 0,
+          "losses": 2
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            21.053412615093126,
+            10.391897991214002,
+            24.289272736929455
+          ],
+          "mean_paired_percent": 18.578194447745528,
+          "median_paired_percent": 21.053412615093126,
+          "minimum_paired_percent": 10.391897991214002,
+          "maximum_paired_percent": 24.289272736929455,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            29.587531299713618,
+            42.889656174237786,
+            20.919614959251952
+          ],
+          "mean_paired_percent": 31.132267477734455,
+          "median_paired_percent": 29.587531299713618,
+          "minimum_paired_percent": 20.919614959251952,
+          "maximum_paired_percent": 42.889656174237786,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.7322834055880311,
+            15.44579117595972,
+            14.184110553311271
+          ],
+          "mean_paired_percent": 9.632539441227653,
+          "median_paired_percent": 14.184110553311271,
+          "minimum_paired_percent": -0.7322834055880311,
+          "maximum_paired_percent": 15.44579117595972,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        }
+      ]
+    },
+    {
+      "instance": "S0_009",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.4164313418115415,
+            6.1559347242495805,
+            2.349624800785618
+          ],
+          "mean_paired_percent": 2.6963760610745524,
+          "median_paired_percent": 2.349624800785618,
+          "minimum_paired_percent": -0.4164313418115415,
+          "maximum_paired_percent": 6.1559347242495805,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            2.5306666908539484,
+            1.6202332034490823,
+            0.123648249388705
+          ],
+          "mean_paired_percent": 1.4248493812305785,
+          "median_paired_percent": 1.6202332034490823,
+          "minimum_paired_percent": 0.123648249388705,
+          "maximum_paired_percent": 2.5306666908539484,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.6095401034094463,
+            1.6182120722409312,
+            0.0
+          ],
+          "mean_paired_percent": 0.336223989610495,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": -0.6095401034094463,
+          "maximum_paired_percent": 1.6182120722409312,
+          "wins": 1,
+          "ties": 1,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            3.8451727821608093,
+            2.9551852054574184,
+            4.026066523021528
+          ],
+          "mean_paired_percent": 3.6088081702132517,
+          "median_paired_percent": 3.8451727821608093,
+          "minimum_paired_percent": 2.9551852054574184,
+          "maximum_paired_percent": 4.026066523021528,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_010",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            2.5187778389316646,
+            13.994645164760847,
+            -2.888047256555075
+          ],
+          "mean_paired_percent": 4.541791915712479,
+          "median_paired_percent": 2.5187778389316646,
+          "minimum_paired_percent": -2.888047256555075,
+          "maximum_paired_percent": 13.994645164760847,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            10.120542828403357,
+            21.66451771950924,
+            1.630047134366743
+          ],
+          "mean_paired_percent": 11.138369227426447,
+          "median_paired_percent": 10.120542828403357,
+          "minimum_paired_percent": 1.630047134366743,
+          "maximum_paired_percent": 21.66451771950924,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            15.557571027847938,
+            23.938086454167458,
+            16.350358307403717
+          ],
+          "mean_paired_percent": 18.615338596473038,
+          "median_paired_percent": 16.350358307403717,
+          "minimum_paired_percent": 15.557571027847938,
+          "maximum_paired_percent": 23.938086454167458,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            0.4405213149094945,
+            13.074889747608966,
+            2.848619111957066
+          ],
+          "mean_paired_percent": 5.454676724825176,
+          "median_paired_percent": 2.848619111957066,
+          "minimum_paired_percent": 0.4405213149094945,
+          "maximum_paired_percent": 13.074889747608966,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_011",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.7890630152774241,
+            -0.17029160254815187,
+            3.035333214852816
+          ],
+          "mean_paired_percent": 0.6919928656757467,
+          "median_paired_percent": -0.17029160254815187,
+          "minimum_paired_percent": -0.7890630152774241,
+          "maximum_paired_percent": 3.035333214852816,
+          "wins": 1,
+          "ties": 0,
+          "losses": 2
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            -0.4525668388042038,
+            2.207177130104772,
+            2.5733012901661843
+          ],
+          "mean_paired_percent": 1.4426371938222509,
+          "median_paired_percent": 2.207177130104772,
+          "minimum_paired_percent": -0.4525668388042038,
+          "maximum_paired_percent": 2.5733012901661843,
+          "wins": 2,
+          "ties": 0,
+          "losses": 1
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            0.13194141582949123,
+            1.070074889528965,
+            1.6959850318792717
+          ],
+          "mean_paired_percent": 0.9660004457459093,
+          "median_paired_percent": 1.070074889528965,
+          "minimum_paired_percent": 0.13194141582949123,
+          "maximum_paired_percent": 1.6959850318792717,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            0.5836300412788112,
+            3.3491014154059724,
+            2.433615940736199
+          ],
+          "mean_paired_percent": 2.1221157991403277,
+          "median_paired_percent": 2.433615940736199,
+          "minimum_paired_percent": 0.5836300412788112,
+          "maximum_paired_percent": 3.3491014154059724,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_012",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            15.706212217040601,
+            9.060153147944755,
+            8.661419446076987
+          ],
+          "mean_paired_percent": 11.142594937020782,
+          "median_paired_percent": 9.060153147944755,
+          "minimum_paired_percent": 8.661419446076987,
+          "maximum_paired_percent": 15.706212217040601,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            49.765484844454086,
+            5.322606648298584,
+            27.08044840674771
+          ],
+          "mean_paired_percent": 27.389513299833457,
+          "median_paired_percent": 27.08044840674771,
+          "minimum_paired_percent": 5.322606648298584,
+          "maximum_paired_percent": 49.765484844454086,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            58.494359107426924,
+            5.575339002187202,
+            19.343919628326578
+          ],
+          "mean_paired_percent": 27.804539245980234,
+          "median_paired_percent": 19.343919628326578,
+          "minimum_paired_percent": 5.575339002187202,
+          "maximum_paired_percent": 58.494359107426924,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            56.45245796328883,
+            8.942243121442733,
+            22.477423616876823
+          ],
+          "mean_paired_percent": 29.290708233869463,
+          "median_paired_percent": 22.477423616876823,
+          "minimum_paired_percent": 8.942243121442733,
+          "maximum_paired_percent": 56.45245796328883,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    },
+    {
+      "instance": "S0_013",
+      "strategies": [
+        {
+          "strategy": "BASE",
+          "runs": 3,
+          "paired_percent_each": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_paired_percent": 0.0,
+          "median_paired_percent": 0.0,
+          "minimum_paired_percent": 0.0,
+          "maximum_paired_percent": 0.0,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_P100",
+          "runs": 3,
+          "paired_percent_each": [
+            0.34493006465573567,
+            3.2320633662307907,
+            11.014016956067133
+          ],
+          "mean_paired_percent": 4.863670128984553,
+          "median_paired_percent": 3.2320633662307907,
+          "minimum_paired_percent": 0.34493006465573567,
+          "maximum_paired_percent": 11.014016956067133,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_EXTREME",
+          "runs": 3,
+          "paired_percent_each": [
+            3.797452965031668,
+            14.10885322989194,
+            18.01352593536372
+          ],
+          "mean_paired_percent": 11.973277376762441,
+          "median_paired_percent": 14.10885322989194,
+          "minimum_paired_percent": 3.797452965031668,
+          "maximum_paired_percent": 18.01352593536372,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_BALANCED",
+          "runs": 3,
+          "paired_percent_each": [
+            4.753808798777638,
+            13.822428051234589,
+            18.695435649848143
+          ],
+          "mean_paired_percent": 12.42389083328679,
+          "median_paired_percent": 13.822428051234589,
+          "minimum_paired_percent": 4.753808798777638,
+          "maximum_paired_percent": 18.695435649848143,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        },
+        {
+          "strategy": "REPLACE_G10_JOINT_PARETO",
+          "runs": 3,
+          "paired_percent_each": [
+            7.275193077121655,
+            11.516757953335903,
+            16.68858659376637
+          ],
+          "mean_paired_percent": 11.82684587474131,
+          "median_paired_percent": 11.516757953335903,
+          "minimum_paired_percent": 7.275193077121655,
+          "maximum_paired_percent": 16.68858659376637,
+          "wins": 3,
+          "ties": 0,
+          "losses": 0
+        }
+      ]
+    }
+  ],
+  "best_nonbase_strategy": {
+    "strategy": "REPLACE_G10_JOINT_BALANCED",
+    "runs": 30,
+    "mean_paired_percent": 14.194669950867885,
+    "standard_deviation_paired_percent": 13.630102179861014,
+    "standard_error_paired_percent": 2.4885048083367383,
+    "mean_95ci_low": 9.317200526527877,
+    "mean_95ci_high": 19.072139375207893,
+    "median_paired_percent": 14.070660443084373,
+    "minimum_paired_percent": -0.6095401034094463,
+    "maximum_paired_percent": 58.494359107426924,
+    "wins": 28,
+    "win_fraction": 0.9333333333333333,
+    "ties": 1,
+    "losses": 1,
+    "runs_above_5_percent": 21,
+    "runs_above_10_percent": 16,
+    "mean_forced_events": 27.2,
+    "positive_probes": 0,
+    "probe_attempts": 0,
+    "probe_fallbacks": 0,
+    "probe_evaluations": 0,
+    "forced_operator_best_of": 1,
+    "forced_replace_selector": "joint_balanced",
+    "mean_candidate_evaluations": 0.0
+  },
+  "screening_thresholds": {
+    "minimum_mean_paired_percent": 2.0,
+    "minimum_wins": 18,
+    "minimum_paired_percent": -5.0,
+    "minimum_runs_above_5_percent": 1
+  },
+  "screening_pass": true,
+  "schedule_grid_diagnosis": {
+    "best_mean_strategy": "REPLACE_G10_P100",
+    "best_mean_paired_percent": 3.7571092821862857,
+    "best_mean_median_paired_percent": 2.752549775539052,
+    "best_mean_minimum_paired_percent": -6.876289675586264,
+    "best_mean_wins": 20,
+    "best_mean_losses": 10,
+    "best_median_strategy": "REPLACE_G10_P100",
+    "best_median_paired_percent": 2.752549775539052,
+    "safest_strategy": "REPLACE_G10_P100",
+    "safest_minimum_paired_percent": -6.876289675586264,
+    "any_schedule_mean_above_5_percent": false,
+    "any_schedule_mean_above_10_percent": false
+  },
+  "directed_replace_diagnosis": {
+    "best_strategy": "REPLACE_G10_JOINT_BALANCED",
+    "best_mean_paired_percent": 14.194669950867885,
+    "best_median_paired_percent": 14.070660443084373,
+    "best_minimum_paired_percent": -0.6095401034094463,
+    "best_wins": 28,
+    "best_losses": 1,
+    "fixed_g10_mean_paired_percent": 3.7571092821862857,
+    "directed_minus_fixed_g10_mean_percent": 10.437560668681598,
+    "directed_mean_above_5_percent": true,
+    "directed_mean_above_10_percent": true
+  }
+}
+(base) cokt2@lnx-grid-41:~/uncertainty-learning-components/expanda$ 
