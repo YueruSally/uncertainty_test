@@ -1,0 +1,297 @@
+(base) cokt2@lnx-grid-41:~/uncertainty-learning-components/expanda$ export OUT_ROOT=transformer_ppo_runs/diagnostics/ccp_i_directed_diverse_screen_v1_10inst_3seed_b400
+
+jq '{
+  completed,
+  scenario_exact,
+  status_counts,
+  strategies,
+  best_directed_strategy,
+  screening_thresholds,
+  screening_pass
+}' "$OUT_ROOT/QUICK_RESULT.json"
+{
+  "completed": true,
+  "scenario_exact": true,
+  "status_counts": {
+    "complete": 120
+  },
+  "strategies": [
+    {
+      "strategy": "BASE",
+      "profile": null,
+      "runs": 30,
+      "mean_paired_percent": 0,
+      "standard_deviation_paired_percent": 0,
+      "mean_95ci_low": 0,
+      "mean_95ci_high": 0,
+      "median_paired_percent": 0,
+      "minimum_paired_percent": 0,
+      "maximum_paired_percent": 0,
+      "wins": 0,
+      "ties": 30,
+      "losses": 0,
+      "runs_above_5_percent": 0,
+      "runs_above_10_percent": 0,
+      "mean_initialization_attempts": 0
+    },
+    {
+      "strategy": "I_DIRECTED_BALANCED",
+      "profile": "joint_balanced",
+      "runs": 30,
+      "mean_paired_percent": 20.671616373647467,
+      "standard_deviation_paired_percent": 20.991922955296634,
+      "mean_95ci_low": 13.159753218003502,
+      "mean_95ci_high": 28.183479529291432,
+      "median_paired_percent": 12.027708760453475,
+      "minimum_paired_percent": -8.147309435961224,
+      "maximum_paired_percent": 79.01270298586044,
+      "wins": 27,
+      "ties": 0,
+      "losses": 3,
+      "runs_above_5_percent": 23,
+      "runs_above_10_percent": 20,
+      "mean_initialization_attempts": 8
+    },
+    {
+      "strategy": "I_DIRECTED_DIVERSE",
+      "profile": "diverse_cycle",
+      "runs": 30,
+      "mean_paired_percent": 17.823523930773472,
+      "standard_deviation_paired_percent": 25.001935663828814,
+      "mean_95ci_low": 8.876696156450471,
+      "mean_95ci_high": 26.770351705096473,
+      "median_paired_percent": 8.89320388753441,
+      "minimum_paired_percent": -30.381517756997773,
+      "maximum_paired_percent": 68.81246158163103,
+      "wins": 23,
+      "ties": 0,
+      "losses": 7,
+      "runs_above_5_percent": 16,
+      "runs_above_10_percent": 15,
+      "mean_initialization_attempts": 8
+    },
+    {
+      "strategy": "I_DIRECTED_RELIABILITY",
+      "profile": "time_reliability",
+      "runs": 30,
+      "mean_paired_percent": 5.081540266413307,
+      "standard_deviation_paired_percent": 19.46515631605854,
+      "mean_95ci_low": -1.8839764640373806,
+      "mean_95ci_high": 12.047056996863994,
+      "median_paired_percent": 1.504453838501746,
+      "minimum_paired_percent": -45.16254364503678,
+      "maximum_paired_percent": 47.5303936643787,
+      "wins": 18,
+      "ties": 0,
+      "losses": 12,
+      "runs_above_5_percent": 11,
+      "runs_above_10_percent": 8,
+      "mean_initialization_attempts": 8
+    }
+  ],
+  "best_directed_strategy": {
+    "strategy": "I_DIRECTED_BALANCED",
+    "profile": "joint_balanced",
+    "runs": 30,
+    "mean_paired_percent": 20.671616373647467,
+    "standard_deviation_paired_percent": 20.991922955296634,
+    "mean_95ci_low": 13.159753218003502,
+    "mean_95ci_high": 28.183479529291432,
+    "median_paired_percent": 12.027708760453475,
+    "minimum_paired_percent": -8.147309435961224,
+    "maximum_paired_percent": 79.01270298586044,
+    "wins": 27,
+    "ties": 0,
+    "losses": 3,
+    "runs_above_5_percent": 23,
+    "runs_above_10_percent": 20,
+    "mean_initialization_attempts": 8
+  },
+  "screening_thresholds": {
+    "minimum_mean_paired_percent": 5,
+    "minimum_win_fraction": 0.7,
+    "minimum_paired_percent": -5
+  },
+  "screening_pass": false
+}
+(base) cokt2@lnx-grid-41:~/uncertainty-learning-components/expanda$ BEST=$(jq -r '.best_directed_strategy.strategy' "$OUT_ROOT/QUICK_RESULT.json")
+
+echo "BEST I STRATEGY: $BEST"
+
+jq \
+  --arg best "$BEST" '
+  [
+    .per_instance[]
+    | {
+        instance,
+        result:
+          (
+            .strategies[]
+            | select(.strategy == $best)
+          )
+      }
+  ]
+' "$OUT_ROOT/COMPLETE.json"
+BEST I STRATEGY: I_DIRECTED_BALANCED
+[
+  {
+    "instance": "S0_002",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        -1.4923599765474935,
+        6.831351226316846,
+        8.06094371036545
+      ],
+      "mean_paired_percent": 4.466644986711601,
+      "minimum_paired_percent": -1.4923599765474935,
+      "maximum_paired_percent": 8.06094371036545,
+      "wins": 2,
+      "losses": 1
+    }
+  },
+  {
+    "instance": "S0_005",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        11.526997320392947,
+        18.375042445131136,
+        21.314888008385374
+      ],
+      "mean_paired_percent": 17.07230925796982,
+      "minimum_paired_percent": 11.526997320392947,
+      "maximum_paired_percent": 21.314888008385374,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_006",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        23.83418416520675,
+        79.01270298586044,
+        22.619868953671244
+      ],
+      "mean_paired_percent": 41.822252034912815,
+      "minimum_paired_percent": 22.619868953671244,
+      "maximum_paired_percent": 79.01270298586044,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_007",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        10.195390557088778,
+        -0.1296089131162345,
+        11.568419310548423
+      ],
+      "mean_paired_percent": 7.211400318173656,
+      "minimum_paired_percent": -0.1296089131162345,
+      "maximum_paired_percent": 11.568419310548423,
+      "wins": 2,
+      "losses": 1
+    }
+  },
+  {
+    "instance": "S0_008",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        39.300080576311444,
+        45.06571083002399,
+        10.064605145012129
+      ],
+      "mean_paired_percent": 31.476798850449185,
+      "minimum_paired_percent": 10.064605145012129,
+      "maximum_paired_percent": 45.06571083002399,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_009",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        -8.147309435961224,
+        1.3156784827777261,
+        5.4588279154966415
+      ],
+      "mean_paired_percent": -0.4576010125622856,
+      "minimum_paired_percent": -8.147309435961224,
+      "maximum_paired_percent": 5.4588279154966415,
+      "wins": 2,
+      "losses": 1
+    }
+  },
+  {
+    "instance": "S0_010",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        30.115590898382255,
+        38.133720559575195,
+        47.733326568654114
+      ],
+      "mean_paired_percent": 38.660879342203856,
+      "minimum_paired_percent": 30.115590898382255,
+      "maximum_paired_percent": 47.733326568654114,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_011",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        0.5001940919012106,
+        1.7737770615002306,
+        10.627713480860471
+      ],
+      "mean_paired_percent": 4.300561544753971,
+      "minimum_paired_percent": 0.5001940919012106,
+      "maximum_paired_percent": 10.627713480860471,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_012",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        43.59561553040854,
+        1.4500422741476584,
+        23.032972167980596
+      ],
+      "mean_paired_percent": 22.69287665751226,
+      "minimum_paired_percent": 1.4500422741476584,
+      "maximum_paired_percent": 43.59561553040854,
+      "wins": 3,
+      "losses": 0
+    }
+  },
+  {
+    "instance": "S0_013",
+    "result": {
+      "strategy": "I_DIRECTED_BALANCED",
+      "paired_percent_each": [
+        12.486998210358529,
+        64.57744182418766,
+        41.34568523450321
+      ],
+      "mean_paired_percent": 39.470041756349794,
+      "minimum_paired_percent": 12.486998210358529,
+      "maximum_paired_percent": 64.57744182418766,
+      "wins": 3,
+      "losses": 0
+    }
+  }
+]

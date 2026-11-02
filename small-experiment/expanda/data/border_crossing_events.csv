@@ -1,0 +1,5 @@
+ExitNodeEN,EntryNodeEN,Mode,ExitMean_h,EntryMean_h,MeanDelay_h,Source,SourceYear,Notes
+Khorgos,Altynkol,rail,22.6,59.9,82.5,CAREC CPMM Annual Report 2024,2024,CN exit plus KZ entry
+Erenhot,Zamiin Uud,rail,10.3,31.6,41.9,CAREC CPMM Annual Report 2024,2024,CN exit plus MN entry
+Alashankou,Dostyk,rail,30.5,76.1,106.6,CAREC CPMM Annual Report 2022,2022,CN exit plus KZ entry
+*,*,road,,,9.9,CAREC CPMM Annual Report 2022,2022,General road BCP observation
