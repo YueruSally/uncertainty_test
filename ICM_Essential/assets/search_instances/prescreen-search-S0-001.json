@@ -1,0 +1,234 @@
+{
+  "schema_version": 2,
+  "instance_id": "prescreen-search-S0-001",
+  "split": "train",
+  "development_role": "bounded_search",
+  "configuration": "S0",
+  "K": 20,
+  "deadline_window_alpha": 1.0,
+  "alpha_definition": "LT=ET+max(alpha*sampled_source_window,1 hour)",
+  "release_time_definition": {
+    "minimum_h": 0.0,
+    "maximum_h": 168.0,
+    "step_h": 7.0,
+    "split_disjoint_slot_parity": true
+  },
+  "quantity_definition": {
+    "minimum_teu": 81.0,
+    "maximum_teu": 150.0,
+    "split_disjoint_centi_teu_parity": true
+  },
+  "od_pool": "train",
+  "instance_seed": 97000000,
+  "path_seed": 97400000,
+  "ccp100_seed": 97500000,
+  "oos5000_seed": null,
+  "algorithm_seed": 97600000,
+  "source_data_sha256": "62515c3bb4aca8b88fd1bd287ef8eb804494dfff23d04f4e798efecab09d4b83",
+  "source_catalog_digest": "9d4f557c7f61919c88a21df42dc6a2b56b36bcfdb812f8f45a81f9c8bf752087",
+  "scale_catalog_digest": "0d13a48e4f74a18e6b57db96a714ac8ca40e81f83858c73a073ccba7b537f621",
+  "batch_signature": "7d9d0085c37f0b487758aa62b17e4f544e23242cd39b2f4e8b4daa3af959dde1",
+  "batches": [
+    {
+      "batch_id": 0,
+      "origin": "Zhengzhou",
+      "destination": "Rotterdam",
+      "quantity": 130.64,
+      "ET": 84.0,
+      "LT": 480.0,
+      "penalty_per_teu_h": 85.58,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 1,
+      "origin": "Yiwu",
+      "destination": "Munich",
+      "quantity": 84.28,
+      "ET": 42.0,
+      "LT": 555.0,
+      "penalty_per_teu_h": 49.71,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 2,
+      "origin": "Ningbo",
+      "destination": "Berlin",
+      "quantity": 87.74,
+      "ET": 154.0,
+      "LT": 572.0,
+      "penalty_per_teu_h": 73.51,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 3,
+      "origin": "Chongqing",
+      "destination": "Duisburg",
+      "quantity": 128.9,
+      "ET": 14.0,
+      "LT": 410.0,
+      "penalty_per_teu_h": 51.97,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 4,
+      "origin": "Ningbo",
+      "destination": "Nuremberg",
+      "quantity": 132.06,
+      "ET": 28.0,
+      "LT": 388.0,
+      "penalty_per_teu_h": 75.69,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 5,
+      "origin": "Wuhan",
+      "destination": "Warsaw",
+      "quantity": 144.32,
+      "ET": 70.0,
+      "LT": 478.0,
+      "penalty_per_teu_h": 100.0,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 6,
+      "origin": "Xi'an",
+      "destination": "Duisburg",
+      "quantity": 93.06,
+      "ET": 28.0,
+      "LT": 484.0,
+      "penalty_per_teu_h": 99.28,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 7,
+      "origin": "Wuhan",
+      "destination": "Nuremberg",
+      "quantity": 97.48,
+      "ET": 0.0,
+      "LT": 368.0,
+      "penalty_per_teu_h": 61.11111111111111,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 8,
+      "origin": "Tianjin",
+      "destination": "Munich",
+      "quantity": 124.34,
+      "ET": 154.0,
+      "LT": 570.0,
+      "penalty_per_teu_h": 75.69,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 9,
+      "origin": "Wuhan",
+      "destination": "Munich",
+      "quantity": 106.38,
+      "ET": 140.0,
+      "LT": 508.0,
+      "penalty_per_teu_h": 53.33333333333333,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 10,
+      "origin": "Lianyungang",
+      "destination": "Rotterdam",
+      "quantity": 144.86,
+      "ET": 42.0,
+      "LT": 474.0,
+      "penalty_per_teu_h": 66.06,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 11,
+      "origin": "Qingdao",
+      "destination": "Hamburg",
+      "quantity": 121.78,
+      "ET": 84.0,
+      "LT": 540.0,
+      "penalty_per_teu_h": 30.9,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 12,
+      "origin": "Nanjing",
+      "destination": "Prague",
+      "quantity": 145.9,
+      "ET": 0.0,
+      "LT": 426.0,
+      "penalty_per_teu_h": 36.5,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 13,
+      "origin": "Shanghai",
+      "destination": "Prague",
+      "quantity": 90.4,
+      "ET": 154.0,
+      "LT": 608.0,
+      "penalty_per_teu_h": 49.71,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 14,
+      "origin": "Qingdao",
+      "destination": "Duisburg",
+      "quantity": 121.0,
+      "ET": 154.0,
+      "LT": 629.0,
+      "penalty_per_teu_h": 45.55555555555556,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 15,
+      "origin": "Zhengzhou",
+      "destination": "Lodz",
+      "quantity": 107.06,
+      "ET": 112.0,
+      "LT": 568.0,
+      "penalty_per_teu_h": 76.66666666666666,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 16,
+      "origin": "Shanghai",
+      "destination": "Prague",
+      "quantity": 81.2,
+      "ET": 126.0,
+      "LT": 510.0,
+      "penalty_per_teu_h": 45.55555555555556,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 17,
+      "origin": "Yiwu",
+      "destination": "Budapest",
+      "quantity": 111.66,
+      "ET": 112.0,
+      "LT": 496.0,
+      "penalty_per_teu_h": 64.4,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 18,
+      "origin": "Shanghai",
+      "destination": "Budapest",
+      "quantity": 105.28,
+      "ET": 154.0,
+      "LT": 570.0,
+      "penalty_per_teu_h": 76.66666666666666,
+      "max_late_h": null
+    },
+    {
+      "batch_id": 19,
+      "origin": "Chongqing",
+      "destination": "Duisburg",
+      "quantity": 83.66,
+      "ET": 154.0,
+      "LT": 553.0,
+      "penalty_per_teu_h": 99.28,
+      "max_late_h": null
+    }
+  ],
+  "instance_digest": "911b492aa1a019095633c5c4fd6e7efe71c9e0924a7ba0c697ab22be549ea310"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "purpose": "untouched training-domain bounded K8 final-HV search",
+  "configuration": "S0",
+  "od_pool": "train",
+  "count": 3,
+  "master_seed": 97000000,
+  "path_seed_offset": 400000,
+  "ccp_seed_base": 97500000,
+  "manifest_algorithm_seed_base": 97600000,
+  "locked_final_test_master_seed": 98000000,
+  "source_data_sha256": "62515c3bb4aca8b88fd1bd287ef8eb804494dfff23d04f4e798efecab09d4b83",
+  "source_catalog_digest": "9d4f557c7f61919c88a21df42dc6a2b56b36bcfdb812f8f45a81f9c8bf752087",
+  "scale_catalog_digest": "0d13a48e4f74a18e6b57db96a714ac8ca40e81f83858c73a073ccba7b537f621",
+  "training_instances_used": false,
+  "validation_instances_used": false,
+  "final_test_instances_used": false,
+  "instances": [
+    {
+      "instance_id": "prescreen-search-S0-001",
+      "instance_seed": 97000000,
+      "path_seed": 97400000,
+      "ccp100_seed": 97500000,
+      "algorithm_seed": 97600000,
+      "batch_signature": "7d9d0085c37f0b487758aa62b17e4f544e23242cd39b2f4e8b4daa3af959dde1",
+      "instance_digest": "911b492aa1a019095633c5c4fd6e7efe71c9e0924a7ba0c697ab22be549ea310"
+    },
+    {
+      "instance_id": "prescreen-search-S0-002",
+      "instance_seed": 97000100,
+      "path_seed": 97400100,
+      "ccp100_seed": 97500001,
+      "algorithm_seed": 97600001,
+      "batch_signature": "eec4f2bb9a52be0746cba8e6b78a2b71dca674f758832cd9f7f7b736d53d70ee",
+      "instance_digest": "f18353714eb07ebde2430d2bd364dd5624bb589894e0dea487976af3198756dc"
+    },
+    {
+      "instance_id": "prescreen-search-S0-003",
+      "instance_seed": 97000200,
+      "path_seed": 97400200,
+      "ccp100_seed": 97500002,
+      "algorithm_seed": 97600002,
+      "batch_signature": "c9c2a8b20ee291a7565314fab601b8a6a097fdc3c3dc93d48affb70c9c1b50bc",
+      "instance_digest": "afc2377550e2c15ec7c7d777e501dc447a17a88a7d778fa1f87b3b5f36b43dd7"
+    }
+  ],
+  "catalog_digest": "2d698c9ed82d0e7290a6174e1d14eec650fa7678c313a8241ac241b36d190b79"
+}

@@ -1,0 +1,95 @@
+{
+  "I_K8_RESIDUAL": {
+    "mean": 1.3593880538378433,
+    "hierarchical_bootstrap_95ci_low": 0.0778289959399098,
+    "hierarchical_bootstrap_95ci_high": 2.9856159700070695,
+    "wins": 17,
+    "ties": 0,
+    "losses": 13,
+    "per_instance": [
+      {
+        "instance": "prescreen-search-S0-001",
+        "mean": 1.4526613427066781,
+        "wins": 7,
+        "ties": 0,
+        "losses": 3
+      },
+      {
+        "instance": "prescreen-search-S0-002",
+        "mean": 2.4788729751285885,
+        "wins": 6,
+        "ties": 0,
+        "losses": 4
+      },
+      {
+        "instance": "prescreen-search-S0-003",
+        "mean": 0.14662984367826315,
+        "wins": 4,
+        "ties": 0,
+        "losses": 6
+      }
+    ]
+  },
+  "C_K8_RESIDUAL": {
+    "mean": 16.18497937321464,
+    "hierarchical_bootstrap_95ci_low": 4.150569134865913,
+    "hierarchical_bootstrap_95ci_high": 35.19165731100952,
+    "wins": 28,
+    "ties": 0,
+    "losses": 2,
+    "per_instance": [
+      {
+        "instance": "prescreen-search-S0-001",
+        "mean": 4.106457702213676,
+        "wins": 9,
+        "ties": 0,
+        "losses": 1
+      },
+      {
+        "instance": "prescreen-search-S0-002",
+        "mean": 36.464187645599836,
+        "wins": 9,
+        "ties": 0,
+        "losses": 1
+      },
+      {
+        "instance": "prescreen-search-S0-003",
+        "mean": 7.984292771830413,
+        "wins": 10,
+        "ties": 0,
+        "losses": 0
+      }
+    ]
+  },
+  "M_K8_TRANSFORMER": {
+    "mean": 8.120788168755565,
+    "hierarchical_bootstrap_95ci_low": -1.2884509870207574,
+    "hierarchical_bootstrap_95ci_high": 22.364060459893945,
+    "wins": 21,
+    "ties": 0,
+    "losses": 9,
+    "per_instance": [
+      {
+        "instance": "prescreen-search-S0-001",
+        "mean": -1.2637670162337233,
+        "wins": 5,
+        "ties": 0,
+        "losses": 5
+      },
+      {
+        "instance": "prescreen-search-S0-002",
+        "mean": 23.43473053171412,
+        "wins": 10,
+        "ties": 0,
+        "losses": 0
+      },
+      {
+        "instance": "prescreen-search-S0-003",
+        "mean": 2.1914009907862986,
+        "wins": 6,
+        "ties": 0,
+        "losses": 4
+      }
+    ]
+  }
+}
