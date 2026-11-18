@@ -1,0 +1,20 @@
+{
+  "protocol": "component-joint-b5000-v1",
+  "budget": 5000,
+  "population": 250,
+  "milestones": [400, 1000, 5000],
+  "progress_denominator": 50000,
+  "validation_seeds": [996001, 996002, 996003],
+  "validation_checkpoints": [0, 4, 8],
+  "ppo_updates": 8,
+  "episodes_per_update": 4,
+  "comparison": "same nine S0-S8 development instances and three seeds as completed full-budget study; no independent-test claim",
+  "single_component_models": "frozen corresponding I/C/M branch of same multiscale independent bank; other operations Base",
+  "training": "no new supervised fitting; warm-start fresh terminal PPO from frozen shared supervision, not old PPO checkpoint",
+  "ppo_change": "terminal B5000 reward; existing PPO loss, gate, optimizer settings retained; three paired validation seeds",
+  "main_report": "training-only frozen normalization for all three budgets; additional union normalization per instance and budget reported separately",
+  "new_searches_maximum": 491,
+  "new_objective_evaluations_maximum": 2455000,
+  "u0_alias": "if selected, require two predeclared exact replay checks, then label remaining PPO rows reused; no invented runtimes",
+  "final_test_opened": false
+}

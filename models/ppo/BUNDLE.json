@@ -1,0 +1,1754 @@
+{
+  "settings": {
+    "protocol": "icm-multiscale-shared-v1",
+    "baseline_commit": "909315deea0f071cf4a9de1e0e921364519ee53e",
+    "configurations": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "train_per_configuration": 6,
+    "validation_per_configuration": 2,
+    "population": 250,
+    "budget": 50000,
+    "progress_denominator": 50000,
+    "scenario_count": 100,
+    "confidence": 0.9,
+    "pool_size": 8,
+    "extra_label_budget_per_component_instance": 384,
+    "states": {
+      "I": 48,
+      "C": 24,
+      "M": 48
+    },
+    "m_start_generation": 10,
+    "epochs": 30,
+    "batch_size": 64,
+    "width": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "training_seeds": [
+      991001,
+      991002,
+      991003
+    ],
+    "checkpoint_epochs": [
+      10,
+      20,
+      30
+    ],
+    "gate_lambda": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "gate_threshold_scaled": [
+      0.0,
+      0.02,
+      0.05
+    ],
+    "checkpoint_rule": "one shared epoch; per-component validation-only gate; task-normalized gain averaged equally across components and configurations; ties fewer switches then earlier epoch",
+    "milestones": [
+      400,
+      1000,
+      5000,
+      20000,
+      50000
+    ],
+    "workers": 2,
+    "task_timeout_seconds": 14400,
+    "invocation_seconds": 604800,
+    "max_stalled_generations": 20,
+    "source_catalog_default": "/home/lunet/cokt2/uncertainty-transformer-ppo/expanda/transformer_ppo_runs/instances/catalog.json",
+    "source_catalog_digest": "9d4f557c7f61919c88a21df42dc6a2b56b36bcfdb812f8f45a81f9c8bf752087",
+    "ppo": false,
+    "independent_oos": false,
+    "final_test_opened": false,
+    "baseline_file_sha256": "bc0789171b9846851f868905f12a568659252b22e98d14a79f30ed59a4aa73b8",
+    "evaluation_cache": "reuse unchanged inherited individual when exact chromosome/scenario key is still valid; new constructed solutions are charged, even if an earlier unrelated individual had the same chromosome",
+    "training_balance": "each gradient update equally averages 3 components x 9 configurations; same batch-count per minibatch",
+    "loss": "legal-pair magnitude-weighted softplus ranking; no regression term",
+    "scope": "shared supervision only; terminal joint PPO follows a separate stage",
+    "maximum_full_collection_search_evaluations": 3618000,
+    "maximum_extra_label_evaluations": 82944,
+    "historical_feedback_role": "quick pretraining diagnostic only; full model refits scaling and trains fresh using full-budget data",
+    "initialization": "preserve Base capacity and greedy seed slots; Directed/K8 only on remaining random slots",
+    "cm_collection": "one Base trajectory shared by C and M per instance; private audit randomness; rule candidate included"
+  },
+  "files": {
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/PLAN.json": "bd3a23f137b44da8242daf54a56d563ebc492121d30cd5217eacf12ad4d9fa51",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/checks.py": "afb9cde57d68749f90db3870cd53c76ba74ff7238ab00f66142cfcd75477a626",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/common.py": "0cf59111ef8b7fdf4f55c5c88a1b8b8a8853a120af72a38dd6e74d6cff063aae",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/controller.py": "edc953aefb606eb8537a16efaadda122edbb5ab35fb2f999dde392caf2640ab7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/instances.py": "b82eec0271ea9d5d2b04cfb595c661032ed5ba32aa0fe4c19ec55e565180595b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/learning.py": "914f6aec05a5951ea5aa09edfa73bfed6d248905fb293644f5c868f35526a10d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/report.py": "93f68ac905d34754932ea2c5115d17080731e852a3065a87b3c03680595bbd08",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/run.py": "1ca6e06436ed6edb2d97094fc18a6c95a808cf8cb988aa8636429dba112fc5c5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/component_screen_b20_v1/worker.py": "fea3e49d48dc680b4ee0c7ff19ba0d65e2b9774f3fce255e48018e82e1534305",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/baseline_uncertainty.py": "bc0789171b9846851f868905f12a568659252b22e98d14a79f30ed59a4aa73b8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/combined.py": "a0b19cd62abaab04572792e7ec087ca0284c7ac61bd58853eb6043ded64a7264",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/crossover.py": "abb95dce9415fc41d0f41b0cdbbf05d42d4a8a795aa0ececb829bc8eb966239e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/data/border_crossing_events.csv": "ba7c802ceacd2d37c9be722cfa49d0bb6b57d63a895fb7e6905de6e5fbc7ea8c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/experiment.py": "9b61d6bd714d887dcd91093845f1e71659cb5c0a8650f50e330f897de259316f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/initialization.py": "4fb044f49dc5d7df98fedc04251d4c457b9d4f5938e93a825d5b10a90faa8b97",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/mutation.py": "f155d4b2b25043457991a5bae51f6c3d27bb93dac41b13bd7b568492d1d8a685",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/network.py": "585bf2727b91348ba1c6f766dcee027113b8e5c99f3ef154a9dd9b10470cfabe",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/formal_inputs.py": "07017c56df923642eec78bd299bd8d3339269644619b8156a215d65e3e94681d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/formal_oos.py": "3eb323d2f0cd96c6c5e42f0b02cccc940da5372109fb80dd9186f6572e2c3794",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/i_k8_surrogate.py": "658bfb21cc6466a696fbb69e6f9f51ea5bb832b307a2799314ba96a17f4ab0ad",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/learning_mutation.py": "5ae7a47947bf1557be1bd0dc761413c67272aaee8e4e860c3e07baaf5d71c259",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/m_candidate_information.py": "e394e5cb491be88249610f85a29a5dddf4b04de50f568bb130978a123b474e12",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/m_operator_closed_loop.py": "3a8d93d6d6c69a551760debfed2b8fe7b382b4199d2b909ba2597fb9fede7b44",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/m_operator_fixed_mix.py": "36635d5dfab028345e73a17030d9527d168c63023e8892dd92bbf71d848ee56e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/multi_instance_catalog.py": "f6de3651d379fe38ac25270c3897aef18c7a8102e2514b6c604adcf7f4f0d532",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/multi_instance_features.py": "7bddcb7b0276399489db264f014f97291ed61826b7b7a3a121f2a649f5f5e4e4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/multi_instance_logging.py": "a77064da32588df2f6af9eea19315a56a5252a369cc99977dd880f113ed11b89",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/multi_instance_mutation.py": "377095535fddcae696e7ed59c9a8225f1185bd496f3a09a1d1649b84970093ab",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/multi_instance_policy.py": "5073e3f90ab1a6081fe6cb0c73250e19b8f4d44af8462289c9d5ced670872b53",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/run_ccp_candidate_pool.py": "e3122212e2b536a3d7de06f328cff63db2d4d8135e6121fe7b1067f00080b0ec",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/run_ev_ccp_oos_pilot.py": "d1ed16c8c26af7fb5f39f35eb5e4b7090b75fa6d28855e5b6df7b9f3c91f317a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/runtime_common.py": "4e27b17c8b13b6acb9756c9fc6e617495399d83f32f42ba1e74e94dbfe60b12d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/__init__.py": "afd2aacdb022f7ded40611fdb8a777bdc29b330a61c7aeb6756f3f809dfc2837",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/archive.py": "1989ea8a04e5dd422ea250bf243e3f9d65dcfabc3c2a87f0b7c4bdd096218087",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/audit_sampling.py": "ba1ed7d7e729c6a32949d6e78fb2ee203d94adc8fef001b92834b790f3ccb699",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/comparison_controllers.py": "22ad85618aa43893ebe9d2c05ef10bd8ddd4a09a442cef6da02191c29a3989c2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/config.py": "226ca3299086d0b08bb059491e2319c660668c377b48f73577779b7d4eb572d2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/controller.py": "5bab5f6a71b97b85751a81b62720318086572c21af99b30449db475158b598d3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/crossover.py": "242359edc3bf3875b219424d7a61fbd4d0438bd9aaebbeb999a7a8e2b3eb5511",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/crossover_controller.py": "7d1cf954408fbd5134ba26135b88f9d8d9855f8b4e21cb18aeddcff25a1c1e0e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/crossover_observations.py": "9899a78a58bf95357914b1a9ecde2fb6734cba18c344f868f884b69815fca872",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/crossover_rule.py": "f5911fe81b9c975dfd6fa5c784e466b77f83fde9c930dfd05bd9d54b6c413aeb",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/episode.py": "db9b1dc9f442d2379f37e9ba348893854775f4943e2ccdf4855e0c6253c1d448",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/graph_features.py": "72f7ca20688dd73b4617cded8ee9871318d42e26ff7ff9e8e665a67bb2ecb757",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/initialization_controller.py": "833b640eb7f5c8dbae9cfe4321ae98795d361867b5f695550319cf4423df8bb5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/initialization_observations.py": "d96f0c667b694dbdfe6124f4eaacbcfb2c434a49815d758fbdac19bdb21c006e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/initialization_rule.py": "a828bd78612cb1729e881c1564f9c869cde7674797c1fab3d65cdd696fe90179",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/initialization_rule_features.py": "b8f71b9aaba6674353ba407a99ea343838fc14a0bd818236fb5a2bc11144a086",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/instance_catalog.py": "afffff3b69590d3e8da27dd7e580de58ce3749c422215e29ec3d74df7459ba0e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/observations.py": "0eba59ba14a510029e2c3c8f27b3d2446bab60ea72f1924c13cdcddb4fee054b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/src/support/transformer_ppo/v2_controls.py": "a1b7aef1c0f24b027e4c436f3ce10747da130b7c28078718aa71c46eef4a8d9c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/training.py": "26c1884c89771390f6082e6761503f68e2fa87185e0ceda778dd7c550e8c917b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/checks.py": "5c83ec44cf6ef63ab3377a8c699ada9a481d87cabd5f6d9a190d565de149bbc3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/data.py": "117aca70596238a46d4bbe80b858bb7b2ff8185998e57d3959cc675b6a1a52d2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/run.py": "a0dc383116d7c9d9b5cdbebcdd1dcaacc69544dbf9716f0ca56c8db66580dc4b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/collection.py": "9596c9dc32dc2372aaf7fdbf6966296ab928b921b53eb3f55a18293a1eca0462",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/shared.py": "7822d1b97b2a270309d940456740f257e0cf36c4f1482367e2692a4322d254f2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/bootstrap.py": "e1277985451db83ed3348b0ea9f56a60e49750427117a1b5a13a1487f3cbee94",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/joint_icm_multiscale_v1/protocol.json": "1c90e4522ae0e0883dbc362c816e4d15cd0b50e94535c3ff21d03dc7370e7ae3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/assets/data/data_expanded.xlsx": "62515c3bb4aca8b88fd1bd287ef8eb804494dfff23d04f4e798efecab09d4b83",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/formal_icm_s0_v1/assets/reward_normalization.json": "de73404449c2b612609ad5248f815793f99b676e4260e2068ae403f043addbcd",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-001/COLLECT_I/DATA.json": "776b16c509321f5e33540a58df120b71d1f2e2e418cdea19bfc54b0a5b41fe3d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-001/COLLECT_I/RUN_COMPLETE.json": "4e8d958b9d3c4a8a846ec1df8614ec880e3754619c61083e5fce1b25930325cd",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-001/COLLECT_CM/DATA.json": "eb3f88ae58a4694397ee0a0c6ebba11f5ac2537efe26659ab6923c5858315466",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-001/COLLECT_CM/RUN_COMPLETE.json": "8d13d454b09f9e736bac0f4e57fef56b1d27012bbdf7f700c4c3f6f2d2d87189",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-002/COLLECT_I/DATA.json": "7817432bd7df1e626295cf87a0e03f975a1fec52dc6a7c897e566e35f208bf5f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-002/COLLECT_I/RUN_COMPLETE.json": "014e489c847eff13fed3e8657140bd3c5827b81800bfe726461bdd764e8edead",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-002/COLLECT_CM/DATA.json": "0a363dd1364cb86f489ee45dd4e1383fc8a26f6d111ba762cbc496bca624273a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-002/COLLECT_CM/RUN_COMPLETE.json": "6e8177f8a93cbda0a8761481987dca1d4f8845a74cdc91ec735da409ab141ae4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-003/COLLECT_I/DATA.json": "ec2ec8f3080c4ab4156e87b3b3b9968c2480e80a1d2ae51ab6efac0392799c69",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-003/COLLECT_I/RUN_COMPLETE.json": "b0754c78f1119a1a6c7900c30ad9bcda40f4a8175bd5bba2e4607e82ef3828c3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-003/COLLECT_CM/DATA.json": "ed2f0c1cdad9ec4ad970c490765266f9a30d1ac845cd499a86d07c8688e81fa8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-003/COLLECT_CM/RUN_COMPLETE.json": "c37eb20f1a2a7e77f40e380d21fa2e9b4141f97d8865657eadd3d80652fad0eb",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-004/COLLECT_I/DATA.json": "829ece2fdcd4006549b12559e43a25c6ba19c04092e747fbb3a8ff84f85acff9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-004/COLLECT_I/RUN_COMPLETE.json": "5dc5584935bb79a2764e1749dbab4b1e32789397b7b243a649e628df5850fff3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-004/COLLECT_CM/DATA.json": "3583d9916d549e092f300dbe0b3a6987f515cdc5a5d778db48218bf07d75bb3b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-004/COLLECT_CM/RUN_COMPLETE.json": "af286aa2005bb1d77a93488f6a9bfbe868350d05f6c713526e2916c3d5f68e70",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-005/COLLECT_I/DATA.json": "e47d0355828a317c4da7ec19bdc5ca2c641207ca6249f598a03537bcc0b7a5b0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-005/COLLECT_I/RUN_COMPLETE.json": "ab36a0d3752168c9eeb0bd7894d103d1691e32fd798c600d82615d6161086211",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-005/COLLECT_CM/DATA.json": "edf4e5e2c5886ca50d9b2121fea0204ebfba7655a36dd8625ec326c7c8ea86b2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-005/COLLECT_CM/RUN_COMPLETE.json": "e9400ef886d736403a02677691e7e8bc8cd160d729a94781acc6f9d3a21cc1b0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-006/COLLECT_I/DATA.json": "83023b1bb998cffd7df64d52ea45d061e1c6c1337b35eb451b4483d9022c4459",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-006/COLLECT_I/RUN_COMPLETE.json": "7ff8fe078b5da6f7e495fa6bcd7ce5e86fabb3a0f8a3d5b32d2f72cd48a3af71",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-006/COLLECT_CM/DATA.json": "5a62003579de697c5a9595053ee594780da8ef77c2f9d8b97321bf23eb0c3e91",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S0-006/COLLECT_CM/RUN_COMPLETE.json": "0289262e7c30911245ef34b854e621dbd8fc33bcde5e1a58728723012a4e2818",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-001/COLLECT_I/DATA.json": "338bd9f42a29594398591e1a844562cb7be09fda74fb85844f5ff32be982d6cf",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-001/COLLECT_I/RUN_COMPLETE.json": "0d3327e7e742849509413da9018fc2ce5369a9a8b47a6618e8267a2435ca12c9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-001/COLLECT_CM/DATA.json": "7d03e9aeef61b4a1e913caf008aa9b7e0c272eacf20a53be12e11c0dc438b7fe",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-001/COLLECT_CM/RUN_COMPLETE.json": "0cdb74bacec768af785017a432a4fa8ddfb112801e888676c1bd83597da731ae",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-002/COLLECT_I/DATA.json": "ff3745b9c8edf6ae27cbf6c2c3ac23c69f950ac97a28b418178a383b8ef41b1c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-002/COLLECT_I/RUN_COMPLETE.json": "9ec909a1a348511c0be1c683507ad56bc6997f79c856f4a2daddfc53a264269a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-002/COLLECT_CM/DATA.json": "8e7f598069f31429c8179fbdfb708d3b14d0f31e79ee357d695c25404d1ce59d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S0-002/COLLECT_CM/RUN_COMPLETE.json": "af497db2c19485a2106f6393e2f122e1e5ba191fa236d0c9c36c44012a13aca9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-001/COLLECT_I/DATA.json": "f3e03c875969e96e02a6aa32b5339103a3eff85e067fa99b19ee16022e3a7eaf",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-001/COLLECT_I/RUN_COMPLETE.json": "f46e754ca72939e402f1054155f63542adf4444832d3301e1fd73282547fdb29",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-001/COLLECT_CM/DATA.json": "a6345e62d7deeadcfab1560aee18382b1283633ed139ea911b12f5758603b7fc",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-001/COLLECT_CM/RUN_COMPLETE.json": "c4adcff73af913ba1280e765618ad031aa742d9ca9e12c68ff60b8ba535d56d7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-002/COLLECT_I/DATA.json": "3d9e9ac616567d77ea4551ffcc204aa72fd5fa577e2d68cd1616e000a9cd60c1",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-002/COLLECT_I/RUN_COMPLETE.json": "76d63def236b3892648c6ba8b1d7d9a6a26b5ae9f2b23d1827405566b39bff18",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-002/COLLECT_CM/DATA.json": "4685128b133fcab4424cc98d799757991f8ae674050f770390c2f80a074fe71e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-002/COLLECT_CM/RUN_COMPLETE.json": "66bd900d0fab9c1ce6c19620e191148248da420662273c5b2b0f80786c1bb2f4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-003/COLLECT_I/DATA.json": "30529b2c9dffe67d038710db0d2486f0f750c9104e7e47b6e92519fe04d733ee",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-003/COLLECT_I/RUN_COMPLETE.json": "e4ff8ae049547307ef04122f1d6b9b9443a86ff20842e6d35d307b1c21487b0c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-003/COLLECT_CM/DATA.json": "fe75a5ea550b3e1a12f1a95b77b1744e4765d571a3a57a0124b5c9b04242e207",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-003/COLLECT_CM/RUN_COMPLETE.json": "713419b1505d17b996ac7178a1a48fc8b6a6d23dc5ec29c5a9694d8afff3dc91",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-004/COLLECT_I/DATA.json": "945159e2f35aab7427ab271cbba64ecf4f398a96aed218b1bea34b9ba00770f0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-004/COLLECT_I/RUN_COMPLETE.json": "711a94563f8077a8d01cae868c481a657c4ebd282f64e61ee06dd142e2f48840",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-004/COLLECT_CM/DATA.json": "ced24d3f1c7d31ee7cd470389ac86d76168a0f618a5547f25a376a90d3dc5af4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-004/COLLECT_CM/RUN_COMPLETE.json": "7bc4c298b2143129ec1447cea61cbb21e7a97c5ea451357ce3f9d11ca0f8de22",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-005/COLLECT_I/DATA.json": "81afe38a83156e2ba1a58ccb40e6c3a7ef18a3c4dbeb52d6bd529f5aa6c110ae",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-005/COLLECT_I/RUN_COMPLETE.json": "b7a122eef0b3780243d3bfe661d3b571756cc8ce3297001b2b659403231c93a8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-005/COLLECT_CM/DATA.json": "62d56068b8292f256578b0b7008d387bc4e740119e2e999b3a456d3d323be267",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-005/COLLECT_CM/RUN_COMPLETE.json": "9ac79da66530a2774aa5c9f3e6da707e912f48d5483cf2a344a169cebc6ffc12",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-006/COLLECT_I/DATA.json": "4b50ac165a085c4d465e0bbc2f4bf8c8febafba6389227e33fa767f0e021f3d4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-006/COLLECT_I/RUN_COMPLETE.json": "0a71ea0335c0c6cf4facfee5d5a30e77cfcf138eac4e68a1d93c8b04b39a0231",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-006/COLLECT_CM/DATA.json": "93b278a50d94d4f42d85c644d3831b7967115db37baa4b4f10f5d4b7e76c4ff8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S1-006/COLLECT_CM/RUN_COMPLETE.json": "3cb7e1ba686929d79d1e009953b26c65e0782f56280a8a20811245273099ced0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-001/COLLECT_I/DATA.json": "ec411829b12461048717bff1add27050719f327ce16344e8f17e5677efc98860",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-001/COLLECT_I/RUN_COMPLETE.json": "ec25d8f9e82e7e7db1dfbed9ba447381b7b1664e47a339e7323a31da07f5ca68",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-001/COLLECT_CM/DATA.json": "782788a006b76b8f1d689dd4cb0fb3b486a5e3b4014a5ec7c7add35dd7f12f1b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-001/COLLECT_CM/RUN_COMPLETE.json": "c70927432ed8cd457864a9f77ec4cf14d65e4a17406612a5338d94da67881957",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-002/COLLECT_I/DATA.json": "818faa39c136fb72dc5a84d65baafef25b3f4cd27cf8bc30a6a9de7b27b73a3e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-002/COLLECT_I/RUN_COMPLETE.json": "5b4d3e57429842f6adf1c356d56f68b7876877238135670bc6c07ce8c15be95d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-002/COLLECT_CM/DATA.json": "1fb26abae30212c04a8f83995cd12160b75921517dd645821278d7730c32f0fa",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S1-002/COLLECT_CM/RUN_COMPLETE.json": "46d1281e53e5c4cff33d3a5520d6d3b297ea326ef3b5c0e6c272911f29872037",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-001/COLLECT_I/DATA.json": "98b18dff99a02efd5aa12b44125e51b702ea51ea32dc20d39f462738bac8c185",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-001/COLLECT_I/RUN_COMPLETE.json": "494159e1a9855dba03f8bb9986ac0cb8e4b1217433de752d81477d5779ecfb21",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-001/COLLECT_CM/DATA.json": "1cd6d3e0b9b4416e8cfa42ed594c150cbbe4edf67e7fae84fb79e14a59bc72d4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-001/COLLECT_CM/RUN_COMPLETE.json": "4314569cc8232ee7f6e281f1e413f7507e827793ec9a5c805685774270a1eff3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-002/COLLECT_I/DATA.json": "e22b4cd5b52c3af5d9fca07fadb3660a2f4fb4c57eee4e9b417d7a9bcaa9c609",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-002/COLLECT_I/RUN_COMPLETE.json": "7992da42be00b2c40b4cd94bb2f132d48f4056345ec0148bfa8f386dab95909f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-002/COLLECT_CM/DATA.json": "c08dddcef5011bd020bb9296686c362336708850b3051a77b72c79adff9337c3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-002/COLLECT_CM/RUN_COMPLETE.json": "ac8107517e6cf2d983c5d1b35fd1ef0e25a4cca12ebbf2d2d29031e8ea643235",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-003/COLLECT_I/DATA.json": "46b1e930e50ca5353eeddcb8f8bf039aa517ce7a89fc4c8485f9ec8475c18586",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-003/COLLECT_I/RUN_COMPLETE.json": "0ca8c378a08089d39a5f193b9251ad207d6090aa5e4a7f5042588c9e14bd5a41",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-003/COLLECT_CM/DATA.json": "ac129b0f0f6dcdefd0eaf62e34a52b6357ad80a2be0d532f8a9eecb244c72168",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-003/COLLECT_CM/RUN_COMPLETE.json": "c5d782487853411c89a1779de80771a7987126c431b38a0e65468ca626a6a98c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-004/COLLECT_I/DATA.json": "67020b12c553ef3635853e8bbf41575d04edf1ea7a2631326dbe0cbbbc572748",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-004/COLLECT_I/RUN_COMPLETE.json": "4e772aefd2aefa7d1bd36a1e825f225263779ee30783bb5a93eba53a36a7b4ca",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-004/COLLECT_CM/DATA.json": "d297ac936bdfd8b7e13e57f5883c18a25043f4c6a842c61ef4b4c94269c3f589",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-004/COLLECT_CM/RUN_COMPLETE.json": "166242e3b77e5256746d37fcaabb782e508c9cc1385a4ca519185b0dc629e478",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-005/COLLECT_I/DATA.json": "07500afe98a5a9aec99a4b0ece44ca50ade1ce6697764d5a206d7ce60edca855",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-005/COLLECT_I/RUN_COMPLETE.json": "aa8d86420d2ae29a1bb0f8d23184b267d94cfa140d448e99a282d0d245b7a3a3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-005/COLLECT_CM/DATA.json": "29f6fc19262a0a1c0d134eb596790026abb44613d6c6a50e55a678eecb94b6c8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-005/COLLECT_CM/RUN_COMPLETE.json": "4e877d2900c2d1b768f552633a478f906f935a3e404aeb9f840732d8e7f697ab",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-006/COLLECT_I/DATA.json": "582e98b884d9e2ae9f36fc085046f1fcbf6e7c3f9b696ba05787d56861eec69c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-006/COLLECT_I/RUN_COMPLETE.json": "f55af4656248b7105bafc4b5cf918e8a645969122626ac8614c591c9d59dddf6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-006/COLLECT_CM/DATA.json": "9a9c1bfabd0d81375b7fb30b2c27dd912300984143718679927e38f81dc13d85",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S2-006/COLLECT_CM/RUN_COMPLETE.json": "0a695bd9e01911b964a3ed52cad50c55165c0b1d37a7d75b96b83a3e958cd761",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-001/COLLECT_I/DATA.json": "d0ef57424e6e2d7acb1eb92a6512dcf655bed213c1630a533d8b433fb926eb81",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-001/COLLECT_I/RUN_COMPLETE.json": "de28fbb7e4dda83e71301c2d3b2b8356b538c69a46dcb808f67f0accc6df4ba7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-001/COLLECT_CM/DATA.json": "5f9adce16585f7dce8bdcd33d5b939e22392f3c8e91e3179c213daee0cb360ce",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-001/COLLECT_CM/RUN_COMPLETE.json": "187ee4c6ff453fdfad3808c02ae5eb5fa04f86caf21bc2d0f64e2c86016ac696",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-002/COLLECT_I/DATA.json": "46c0d94d3c7bb2041d0ddea83da30657c4576acb154813069267dccc3762f5df",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-002/COLLECT_I/RUN_COMPLETE.json": "d45ae3628b2200673985c0a11dc66b7711d6fdbdbd81c968ad16555dd9a66787",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-002/COLLECT_CM/DATA.json": "0b5aac1386003292efadc81b1af10a78aa7b92a1e9338fcacef1c9b53b03d890",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S2-002/COLLECT_CM/RUN_COMPLETE.json": "61ece13bf0985a87458fa4cbf32b065443ff6884a3a358c934c4e9b607767e9e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-001/COLLECT_I/DATA.json": "b742ec92afd17b4477a6c39350bb0337a8f3b1dac1c263cb49d8fb12460400db",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-001/COLLECT_I/RUN_COMPLETE.json": "84da35d9f76a7a6a779b08ad50f75a159113d36cc06cf32b7cd68a2ce1ab2411",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-001/COLLECT_CM/DATA.json": "fd94cdcd754dc7aa38eb1f3194082b7bd6fd92873cf12db71f486bd23cf0a1fa",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-001/COLLECT_CM/RUN_COMPLETE.json": "cbaee0d3c62429c093ede18e550eaffd1ea3045e4cd09b6d24b3b8b87ff06e0b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-002/COLLECT_I/DATA.json": "57c8243de70313a63c3180c18a626f00fba9d7873b2771992cf9fc00dc605fd6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-002/COLLECT_I/RUN_COMPLETE.json": "9ecd03341e4fe5389be869ef62e3f552c249e4f5fe5f115df89812700356a8d4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-002/COLLECT_CM/DATA.json": "a2f9cd7759dc448900ffb6618688e29e00c14826cf2796d25f8703a65a72062e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-002/COLLECT_CM/RUN_COMPLETE.json": "fbc47c6cfc44146ded4923accf16587c0324d663694af019b92aa200aa4680d6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-003/COLLECT_I/DATA.json": "add5b22f25df9b71dcd260aed7dba9c4f5e4d8e4d5f0b690c32b740b5d4dced6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-003/COLLECT_I/RUN_COMPLETE.json": "686d2fe6092373b10870d1007e75ee39016b3e8fe9586b30b5dc9b0043cf6fc7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-003/COLLECT_CM/DATA.json": "4765b56a087aa281060b694ce9be3d836ff284dea5cd55aa4879243a6a9037f4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-003/COLLECT_CM/RUN_COMPLETE.json": "8b31af1ad407965f1aa3388be2fb387fceadbee58e29b7b7260f3d374cf762b5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-004/COLLECT_I/DATA.json": "d26567aef187b01c576173c8383cd64c565bec3bbab0e848e2516d082eef1788",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-004/COLLECT_I/RUN_COMPLETE.json": "db215eb3599f8817bb01acad79a6a1f7173a3c930bf3f3eca990677bc70d924e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-004/COLLECT_CM/DATA.json": "51a68fe95a106072b739fc05ef1a2645fbe5a15379d64460f77adf739e9a10f7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-004/COLLECT_CM/RUN_COMPLETE.json": "b6081ba4c0e69edd238b8c59e7a78c823f4951f2bbc6b05580343cd05cc90859",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-005/COLLECT_I/DATA.json": "7804e98e48aeec5de0cd39f98d53a39c380df40297cb3a081d577d3468f728f2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-005/COLLECT_I/RUN_COMPLETE.json": "16efb4a783f212ecf0c5e64a57d462943048304e361e8d4d6bb47f4e492edb5c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-005/COLLECT_CM/DATA.json": "7b090534fdb819e7c15c3bfd2db1a80ad252d853d7b959ed14926589c5a70816",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-005/COLLECT_CM/RUN_COMPLETE.json": "228d99a6bdc2261ef86c0c9085732b31f07e890f0cbd8f9724314e8d5d4d128c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-006/COLLECT_I/DATA.json": "ed5b3b9b08298b40c8e18368bc0c3e85d282d8e739d16146d8b98e1c06633f76",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-006/COLLECT_I/RUN_COMPLETE.json": "67e043e630010679152b53c8edc5629e01be6c8fc4f3048e0caf3475a88e9335",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-006/COLLECT_CM/DATA.json": "4e0b4b85ba4be0bee5daf280cbc3d9723384623c73f47c26b770710deefa37ab",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S3-006/COLLECT_CM/RUN_COMPLETE.json": "82bf83a98e49f2649716afe672cdc2110ea32af4d467110df2be60a67ca03331",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-001/COLLECT_I/DATA.json": "2a3bb26a8673e632aebb0bd1975f1ecca9e88eae891314433b7908963942a88b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-001/COLLECT_I/RUN_COMPLETE.json": "31aa9f4619991668e549a7f16002f9593a37c3915b8519f89db5001de22aabc6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-001/COLLECT_CM/DATA.json": "bc794ebc08b623571b7363d1a9e3564ff6ff11b4872429cbb4093628b312d2d8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-001/COLLECT_CM/RUN_COMPLETE.json": "acb09f1ef91f152c7294069da36e6f226716acb58958019a917a54adcea9e7ab",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-002/COLLECT_I/DATA.json": "3e74becc97f73444237ea4eba89207e7b018a1a910739cfdfd0ec884b6fd255e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-002/COLLECT_I/RUN_COMPLETE.json": "86c9683b95be0ee861e25f78ded109efc2d6cbc83291044e484ed12249206454",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-002/COLLECT_CM/DATA.json": "50ab506ed37eb36bea73131b73cadabdc7c2b3224761125dbcc7f831f8df95c2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S3-002/COLLECT_CM/RUN_COMPLETE.json": "f5e553e164981b538e115af79700f3759d59008016dcbbe3dbd62f1fcb89ec45",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-001/COLLECT_I/DATA.json": "e342fa1e897d01680213a4ab756a72f27b94c009dcc8b5a3006b7765705fe2d1",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-001/COLLECT_I/RUN_COMPLETE.json": "03ffdbca51992f4e889bd6d676aae9d10dd924625b0883dedb27484ba8d55c87",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-001/COLLECT_CM/DATA.json": "11c91ed8162f6af41c0e832a8eb5ec559eff7e0f0a262804b47fa2802c0fc3c7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-001/COLLECT_CM/RUN_COMPLETE.json": "909e445e0445638ec1f67b413a1906e5c98f74ff3144b9523e81fc454c2f75b5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-002/COLLECT_I/DATA.json": "a80acefe13b433a71aabc87f0443853ada7ea9b2bfdfa1f7337388f4cb9918de",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-002/COLLECT_I/RUN_COMPLETE.json": "b9369e49b63b89ff5c0de48436728ed1ca546acb2bd17de5318dd81d1e5e30a4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-002/COLLECT_CM/DATA.json": "44410de77a601f32a72dd76b6c649640f6b85d18c358528dd0d041719eac8728",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-002/COLLECT_CM/RUN_COMPLETE.json": "83a0af50097a8f7ca9e0db89cde05ee8572edbddd6965c3cade5eccc348ba1e9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-003/COLLECT_I/DATA.json": "e26e0037379853d1f2e83070bf24ab2effe807a9a5ffa0f0f0201bd86661ca36",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-003/COLLECT_I/RUN_COMPLETE.json": "0e8b63ac92fda12420ed864029a2ec785b2cc3fc55f8d76b630fc4e928054a10",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-003/COLLECT_CM/DATA.json": "13ccfcfb1a6efa9930b945d1dddb7f154d4f85fee0e77a7a4b81eb2a672f3b7c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-003/COLLECT_CM/RUN_COMPLETE.json": "41949c21dcefb137f2cbabf7dc17b0578265a994c4b398d8280e778810829755",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-004/COLLECT_I/DATA.json": "f8ec8f924d0ed6a38bf0cfdcac40600ed862a03337fbff614913b9a6c9d6ff72",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-004/COLLECT_I/RUN_COMPLETE.json": "4bb99babe6922e61638317b6c7ba7972607aa9822d7d926b9fef0046353715a0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-004/COLLECT_CM/DATA.json": "659632cb06c4d9304f0088474938f508c555c027f98d88de79f106b491ed1a1d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-004/COLLECT_CM/RUN_COMPLETE.json": "3123547da8f5cd10f1ad4cf5e42a7b7319cf7fd01a340d0a72386194137623b3",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-005/COLLECT_I/DATA.json": "7c6a675d6e9002f71497a5d40fc0f2848108ee783726a0301cd5b3379b158b8a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-005/COLLECT_I/RUN_COMPLETE.json": "685e4dd83e5d9ce555bb13e9a2f45d44b03b894564d54f232f66772a0c26638d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-005/COLLECT_CM/DATA.json": "359bd2e7b4881bf700443d4649c2e5ac510f2b07e079ce6f74e48c4bc6280b4d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-005/COLLECT_CM/RUN_COMPLETE.json": "7ee2e070fd8d47dc7a8850ca0893f7d319133db94641a8b927a03a77a417102c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-006/COLLECT_I/DATA.json": "deb312fc00468e286d15d694a1abeac05398a8b4e7f6c59b3b53e6323f240e90",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-006/COLLECT_I/RUN_COMPLETE.json": "7d41b316050192143def84174403579f35cd5e5bc34f951b513aa923c7c591cd",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-006/COLLECT_CM/DATA.json": "6ead98fd005c3352d7482fbc484e95d3a6008d4f57819a0c11de2712a7a7649f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S4-006/COLLECT_CM/RUN_COMPLETE.json": "b486814df105c9b9c433bcf7bcc3f1d658c70281eea4c1bf855cbe511988ac56",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-001/COLLECT_I/DATA.json": "bf986352fa2405237b5e6f7e5b2acd1a2ba2e45dd250662e2096face9350945f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-001/COLLECT_I/RUN_COMPLETE.json": "4af0c90e87f929c99a4c642721cf46b7419d76ec287ea96dd282b7fde4215d82",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-001/COLLECT_CM/DATA.json": "a4ddff8f811377b218963df9348f4cbb703536d53d54fc6ffb9c76caa61d78cb",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-001/COLLECT_CM/RUN_COMPLETE.json": "e9f95fa822e7b1b887afb57e1a4a41153ce34288c929adb6aabea0be280f74ea",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-002/COLLECT_I/DATA.json": "57b0101d465ac17fa113156fc325175c2d7ce787a44e9c1c92b8b31d2ef7f0f6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-002/COLLECT_I/RUN_COMPLETE.json": "6045e9181729a33fcd69fe6e3ca5c25de7a75be7d2cc836b550dde18ad8f7f3d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-002/COLLECT_CM/DATA.json": "93e62cd020f80472f9bcff0c0608bad1b5e5f4574e26b7efaaf7f31a3ac91426",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S4-002/COLLECT_CM/RUN_COMPLETE.json": "70ad34ff3b1d09d0f2bd00bb31713ba38530fa3726a80cc88a2a18373a49b2b6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-001/COLLECT_I/DATA.json": "2917f124dd6fdfc493180b31f63cf418af60df00b947dba008315e52e07f2ebc",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-001/COLLECT_I/RUN_COMPLETE.json": "e91e6ae90bcfd83dddee13a21c4946e3e3a4ba1316fc81fe5a69e7f438786404",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-001/COLLECT_CM/DATA.json": "a66c9a8f40581bbfe976aa968c3110690d667c2ca800a771c2957121d7b28ad7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-001/COLLECT_CM/RUN_COMPLETE.json": "4f4da91c48e677637eae744e199df24689bb54c1d0c8a219162726a8bb77100c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-002/COLLECT_I/DATA.json": "68a3e816d3892753f1d5e1d4439b2dab5b9a63a46a51d6f81ba68884cf056898",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-002/COLLECT_I/RUN_COMPLETE.json": "a46991403be5987c2aa81b7121e17c5858f62ca632cc4e937b1bef88a8d3fefc",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-002/COLLECT_CM/DATA.json": "9811658fba70bd0846dadbb8bc6cc0ce519e913fc218c907b450cbd2c2e2f676",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-002/COLLECT_CM/RUN_COMPLETE.json": "074fcbf31ac2bea20f5f12291ecfb01dc0eb8d16f6671281a8343e5afebc15f7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-003/COLLECT_I/DATA.json": "b642b8704db93ca7090477e4a90e578b10029f5b5b428ab3650310b2b62e3c05",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-003/COLLECT_I/RUN_COMPLETE.json": "ea871a2c69d93f58c120a28a10de4385c1d3159f1f8906107662e1ece0a77b9d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-003/COLLECT_CM/DATA.json": "ca142ed2a146415972bb8249ef785b20b56c865b0440c73ad919dc6629ba238a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-003/COLLECT_CM/RUN_COMPLETE.json": "c270a9b2710d7f30b7a1b3cdb4c5794529e0714d58949fe37cc32fce9867c5b0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-004/COLLECT_I/DATA.json": "575235a428ba7cbbb8760ef40fadd46a2ca73bced05ea0068b5f6ea1ffc5e345",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-004/COLLECT_I/RUN_COMPLETE.json": "a800dcb2feb2dda970993934b7374cb934f60f2c38e377fd73391d9b2b0c1d1b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-004/COLLECT_CM/DATA.json": "4688abe974fac2c89cd8a82d2c3bd477fb8d7d00db23947c765b2e566c952ef7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-004/COLLECT_CM/RUN_COMPLETE.json": "be23aefabd06857189314c19b9e1b14b996e7a4f746470de195e69f1a58de37c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-005/COLLECT_I/DATA.json": "cdf83e6d8a9bc726340d9bd96b483b6ff0e53b1e6a05ee51e5905934d7377f0c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-005/COLLECT_I/RUN_COMPLETE.json": "8a10440919a0ee8d71895243ea34568b205ce8e96a326e22735639ff917e12c7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-005/COLLECT_CM/DATA.json": "dc9f9acc6ed2d8afac173db2de307d628741bf6ba04c9a9137ad67585006aa78",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-005/COLLECT_CM/RUN_COMPLETE.json": "a70bb4c5580a28143bc1df274a3c7d850364b69000ef35c9336526b897a270e8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-006/COLLECT_I/DATA.json": "34b59d0b9c8d433e29243783c9286ab9d5580b2f0eacb3fbb547121ffaa1b001",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-006/COLLECT_I/RUN_COMPLETE.json": "65f12f5612cb22e59914c30b87fdad99a9691eca4ef86e65140d359074941071",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-006/COLLECT_CM/DATA.json": "2fd1d63c02c4f519f01a3eb09d1435c2807274956cf5550dc6a6d2f82f4e19b5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S5-006/COLLECT_CM/RUN_COMPLETE.json": "2443a64559dd003a6ef8874c55fe5a499f91532c6e37a73bcca1b4218a398607",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-001/COLLECT_I/DATA.json": "9754bc7007308b4e9f444c1542d9b3f2d44bce01820b1417a5622b350df915d2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-001/COLLECT_I/RUN_COMPLETE.json": "224ced242116a6f47abcb2aab2c18fb735ed088b711be6e887975cbb8d1dc886",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-001/COLLECT_CM/DATA.json": "a9251f9005466ade29005b28e7df97df3ed6c26ff498334841ca4886810d3ba5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-001/COLLECT_CM/RUN_COMPLETE.json": "aec3c60987cf9c17709e74c94076ccd278f2bcae51bf46414c0774bffc681ac5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-002/COLLECT_I/DATA.json": "d2c6c5b6f3879c9cc55dd960e677ddb87aa5c4ecf405088d7de1cdc95b1ef689",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-002/COLLECT_I/RUN_COMPLETE.json": "21185f9184f080d9d36f10f027173d37920e0fdaa6cf3fa44ff3afa5da7aff76",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-002/COLLECT_CM/DATA.json": "52e615d7405b14ad29998d1b2f30ecfa3c89b32511236b3a4e2b78d5023438b5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S5-002/COLLECT_CM/RUN_COMPLETE.json": "7f8b131eab53296b55f6e9c5ed9bfe8626140b6a56ee8da5019e8341c0b6e5ef",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-001/COLLECT_I/DATA.json": "ab80c2e2ab45b5e8b8b9955202c02bcf60939377278e6bf9a9e3ba771a53aa27",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-001/COLLECT_I/RUN_COMPLETE.json": "332944fa4306a2c5a8b9ca77e227cfb0358988eb7245b107b52845e05abf3b18",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-001/COLLECT_CM/DATA.json": "0936f1abb340fc2e504417d7b73f0165dc47e9e1763eae180621b7831ab57792",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-001/COLLECT_CM/RUN_COMPLETE.json": "31209ecbe114d132bf357d86de8cd23a8245f41261f5ca7ca68faac5866f7dd6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-002/COLLECT_I/DATA.json": "ce3181f797e3767d71a22ba59077b1f93f7b55075faf007a78ecc985feed3253",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-002/COLLECT_I/RUN_COMPLETE.json": "007b2b21cb9fc9810fc4db9524a48f145ec6ca96ed0aa4f055658bafdad8939b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-002/COLLECT_CM/DATA.json": "a19ee1766748ee451cdc5a162630dc2e09fa6667615a84915fe490148587c013",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-002/COLLECT_CM/RUN_COMPLETE.json": "c43c137ba5ef3741d2503cb8799b72356ea23fcc5ab423e9eb3f18ea8c28373b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-003/COLLECT_I/DATA.json": "2629054a262f54065ee99307b114ae6d52e17a188ce2c0abbc3ec8ade4d87c5e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-003/COLLECT_I/RUN_COMPLETE.json": "af410c0daeaa51112dc54335ee91af8c96d8b96df4a5824dbaafcbaa75ae5377",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-003/COLLECT_CM/DATA.json": "d4d2b8f4763659e528437902f7d710e3a5756f3fe52cc6c8041ce6c502ed8d41",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-003/COLLECT_CM/RUN_COMPLETE.json": "21f13bdc5a9a4b67eb17d08b2bf8f3429f4407fd49b4030b52ecabbd25769fb8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-004/COLLECT_I/DATA.json": "1d68cc17e1cf24b8d00dc4c79a30bd96a13650892001c0dd3f2dbc28a585933a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-004/COLLECT_I/RUN_COMPLETE.json": "000dd558440c9a58238c9e24f02875415c9ac4210c281c0a33012cc8dc981c97",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-004/COLLECT_CM/DATA.json": "d2f1cc8bcb9363f504094fc0bf22e4e7397b7290dabe3adf1a072dfda6226d53",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-004/COLLECT_CM/RUN_COMPLETE.json": "e3083788c0e92252866285b7a5c45f00c1d20e43debb4380a3aa45bc4516e288",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-005/COLLECT_I/DATA.json": "f26fb444395e89b03be18d6f403599fb36f9edf839ebbc0dd3a32e6b60d63ce2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-005/COLLECT_I/RUN_COMPLETE.json": "df1f5cfac22f5bc13cb87e433f5be59520a3ec890d1c8a3de449f0926b5b3f7d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-005/COLLECT_CM/DATA.json": "f9ccc6257f442cb057d70a0dd094f48406192b0bafc9eb1d67c98b39e42ce801",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-005/COLLECT_CM/RUN_COMPLETE.json": "3f590dca7a7c97487c1d58242d809469759fb5a1fbfca06f5df62d3bacb614ec",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-006/COLLECT_I/DATA.json": "ac007f9a4187051c5cf3516a80260fedcfd267179e86f994c8bdbc526e65798f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-006/COLLECT_I/RUN_COMPLETE.json": "eb5d43aff1d6f7725571b465858a6b220694805d038287814beed1cf013c9ea1",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-006/COLLECT_CM/DATA.json": "230b26106b2ff9a326c81b7afb99b593e831b9495b327ca6afdebb2f588ce884",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S6-006/COLLECT_CM/RUN_COMPLETE.json": "b320ca2da402952613bd83efc383a239f6c3871d932bb235996407fed2ef7288",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-001/COLLECT_I/DATA.json": "3a4f9d778938b364cb1b62dd27be279ca50766a5a33ee7ff65361910d6644824",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-001/COLLECT_I/RUN_COMPLETE.json": "37ee0d8b5ce5fe5543b0dd10e12f3a87a46ca5474318ea0521d091ed2e00273f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-001/COLLECT_CM/DATA.json": "138ffd998f505272eb31297341d9fc4665296bdbea5ae99016733ca4d52df42d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-001/COLLECT_CM/RUN_COMPLETE.json": "00b6aceb3c7448281a4d296e2b7d1a38eab7f376a8ada919e7d64ca7089fd33d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-002/COLLECT_I/DATA.json": "27e1500b1976ee205ded7a06ffa31422112d0931c7e92fe0b808a5a61e2cc8ba",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-002/COLLECT_I/RUN_COMPLETE.json": "de036c53c5c0aa4b522c5c8426440b1a81739821a67534f3223d218bbb67aac9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-002/COLLECT_CM/DATA.json": "9b97f7eb72c517474cb2cf3aadf7819512e2910d46dc2fe7a245d9744e9e73a7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S6-002/COLLECT_CM/RUN_COMPLETE.json": "1e4684a979e80c6887026ffd884a1aa553eaf4075ab4d6494a2786f7d9c26048",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-001/COLLECT_I/DATA.json": "b008724e2661e85b7a228ec6f0c8659f1314a79e2a6a2b34330aadd7e8166609",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-001/COLLECT_I/RUN_COMPLETE.json": "a4f3469b4037c9dc3e03716a8bc4fc68b54f9fb59eacf785bf577b8bc2b38103",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-001/COLLECT_CM/DATA.json": "46e9109e2378209bf26220ba944d14b2767a1f4ea9d51dd8a20cdd708b968af9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-001/COLLECT_CM/RUN_COMPLETE.json": "77fde6e68255d9c96c35e7d18542c651081d411d1c5a655e9cfced72b49aac0a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-002/COLLECT_I/DATA.json": "96cdb6068d22216b71718edf77219db7171077d00c1d0011b550947e2a8e0e56",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-002/COLLECT_I/RUN_COMPLETE.json": "ce8e585a5dc6d740069f9ed4cbdcb793d649e1849850c9fd588e9f3937520f3c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-002/COLLECT_CM/DATA.json": "bc9f70dd2df32b4560f6f5717a50a84deddd7525f91f15a232283c4cec4ab339",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-002/COLLECT_CM/RUN_COMPLETE.json": "62a09fff134dc3bef1dd3eb287813c362ff7d63709cea16813d9983731c8c3a0",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-003/COLLECT_I/DATA.json": "54eb9ff6e7ace73e227baaf8f5d1f7b792002e187b6eb227f7af56a2155c01cd",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-003/COLLECT_I/RUN_COMPLETE.json": "68e97ef8bc25bdc88dbbb72535148fd8a2c2d462dbeb2ba06a4792b1542a5fb9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-003/COLLECT_CM/DATA.json": "5c66bdcfde95925dbcccff5b4ed7c63ed2bc38c8f296bca1d11ab7c859dd082d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-003/COLLECT_CM/RUN_COMPLETE.json": "4eaa86f83fccf4e98a72f99ff8349e781d64afc7dca22336c3bda26b4a1e821d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-004/COLLECT_I/DATA.json": "bb30147eb12830a549944eaaa783463773e2d0633fb98a02be1a97cf2200b3f5",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-004/COLLECT_I/RUN_COMPLETE.json": "f73872c61b6d670a7d47a9359cc6f9771724898cf466112187b3066c6d49b21b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-004/COLLECT_CM/DATA.json": "90ad1d3656645343071c36cf30c1d8c1baacf5d8525de6afd93057015dd2f29a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-004/COLLECT_CM/RUN_COMPLETE.json": "5913641b3e894fd2f580c844a02531c2721b47d1bae90a0d41ecd92318e1c06c",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-005/COLLECT_I/DATA.json": "53a56b313010e46268d1df85be88208203cf149164c5ce852ceae47ee22e75cd",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-005/COLLECT_I/RUN_COMPLETE.json": "a1a287efe16388b0861232f14fbc52eac4dedfceec21ddb4f01e939c23e81782",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-005/COLLECT_CM/DATA.json": "09f4a23c8d6650b6d0149b6dcf0663c1973da7406393162ad9a169a61118f93e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-005/COLLECT_CM/RUN_COMPLETE.json": "4b33a1a4167aedd1a255361269878933c280e4b7303e00ff940a214d4408b044",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-006/COLLECT_I/DATA.json": "cd6657de091a7a80895eb051936b3fa54e7b2d045e2ac1bbc62330b0ba26f955",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-006/COLLECT_I/RUN_COMPLETE.json": "6e17e60f53164417c4990ffdd4b82cd5e8ec40bb2e6d375bf5cddf1c641174ef",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-006/COLLECT_CM/DATA.json": "2ff6ad0fb24a98ef6a362d63ea9ca9d0239a93678746b509991a8ae7415056f7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S7-006/COLLECT_CM/RUN_COMPLETE.json": "256250e0047a6cb02e4996b31b1c9c90b1c06bf62d5273bfab21f9cb881f70ed",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-001/COLLECT_I/DATA.json": "1039e508331b074c90a06ffbcbcea6112df6dd2b42e284e429f05d39842640a2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-001/COLLECT_I/RUN_COMPLETE.json": "1cbc4e388cab73787a0d547ac9fd9c6ea20c280b3ac58797d072b642ff68ccaa",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-001/COLLECT_CM/DATA.json": "d7b373cc60a0288c7747303d1bf0f6161bc849f4d5b78660cdf8f204a97bbf1d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-001/COLLECT_CM/RUN_COMPLETE.json": "f752cfe79b2e68cee36bad46871e38ee275a200431b1216d55dca8bdecc45766",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-002/COLLECT_I/DATA.json": "bb5cdf021f55cf6230413c2d1abb322b6763e4ed63d7d4e95b8f50c1216a0271",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-002/COLLECT_I/RUN_COMPLETE.json": "97c95badc2b466a5f9d06512ebcc778631ea3f9c3535c6eaf0755787311b176f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-002/COLLECT_CM/DATA.json": "3a8a1135a15349152caaa945e053b04a75b8c9b60be2a5cb24347488a745e35d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S7-002/COLLECT_CM/RUN_COMPLETE.json": "3588b88a87c50ddf057e58b3f47a52fd313e14645825894b101384a98544fe02",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-001/COLLECT_I/DATA.json": "52d107dc773f0eea937e7b6f6990ea2b6db1425be58647627d3899719c0e5d8a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-001/COLLECT_I/RUN_COMPLETE.json": "7457d7d090743a85e70728f6e0c56d296212080993c7a2afeaf3a40b4d1e3fff",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-001/COLLECT_CM/DATA.json": "70495ace902eec9b159bd02aa66885e64b025df1d7860a08a74769901f457547",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-001/COLLECT_CM/RUN_COMPLETE.json": "ee8ac54ca0c3b6459853cc941e637a3764985be24b5e5a8db34d9e04d8829ce6",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-002/COLLECT_I/DATA.json": "e5b5048c313e2e094d9b7d0a53fdebd01a6bdd8f6a766dce9e5fcea111498ef2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-002/COLLECT_I/RUN_COMPLETE.json": "93d22c7744147e419f47e509768900d314dd6b217a98546a0d9f14d6375236af",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-002/COLLECT_CM/DATA.json": "569c78f0c45bc019b8ad4420523d24d78aab023e7f3402ef8f48afeb911bb1ea",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-002/COLLECT_CM/RUN_COMPLETE.json": "063906752902adc6ef8da21610cdd67fcfef738e1bcbeeb2647838b0462c085d",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-003/COLLECT_I/DATA.json": "72da513bb3bb384b521b9b2feb0661cc932955f5dfa72f4a7135d81c3bcf0dfb",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-003/COLLECT_I/RUN_COMPLETE.json": "ca2a67fea2716e08f5b195bbf0a5eecab4885a26fb58de51c8721ed15065c689",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-003/COLLECT_CM/DATA.json": "b697d11f7f0e874bf63fa4fb6388ac6123af84a3574490b94b75ec4c115772c4",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-003/COLLECT_CM/RUN_COMPLETE.json": "9776dc4a1baaccbff73a09aacd65cceaf080892aed8165fbdb74b0e6db1a6869",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-004/COLLECT_I/DATA.json": "9ac0ec474e7d7c54e4406f896cc81a15569bcc8d38da8e7ec52af6be9fad4d7a",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-004/COLLECT_I/RUN_COMPLETE.json": "5c93383e01c2d8c9bdf2020ba8c5506f0f193f9eb1a87061966e45551f405ce9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-004/COLLECT_CM/DATA.json": "fa57732933de938957cfdb3878fc108c39ab428a4d5798d1a269d38db2fab8d8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-004/COLLECT_CM/RUN_COMPLETE.json": "188ca3dc0c93747899be858c11adfabd96a396d71c0ea6d48d475f9700a1bf0e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-005/COLLECT_I/DATA.json": "2a33a93f93e3f5f41b931483be0329306af223ccf519341e2561d05699e2f157",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-005/COLLECT_I/RUN_COMPLETE.json": "51ab7bb252c435bb7e95ce437c22a0a36e38fcc11716a217cc63733f312f188b",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-005/COLLECT_CM/DATA.json": "791ada55717367e878749174c69dbf5f4c125d5c35403cd03a7670c6133a480f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-005/COLLECT_CM/RUN_COMPLETE.json": "a85e8d2a42db341bd31aaa902945f9d843e651d4b58f8be2807204dd5f55c041",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-006/COLLECT_I/DATA.json": "b6af43d972cb1991a20e4df84fdc64d5d3aeb280df1134a740cd427d726b1b75",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-006/COLLECT_I/RUN_COMPLETE.json": "9e6108593faab296c4be4ab75fbc0f540527bdbef6f5c67c1cb91e91bb9edfb2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-006/COLLECT_CM/DATA.json": "67d926d41ad83acc31f89cad7d814316de9fbd712e909a795bcaabec2604cef7",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-training-S8-006/COLLECT_CM/RUN_COMPLETE.json": "3d7d521855ee79b7493c25308af6659b1e725f67f628971ffc910d9f8f050683",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-001/COLLECT_I/DATA.json": "9bba30c3e610c1ff2f2622b3c4b0c15c04a4a7a85b900dea3159b6017c21cff8",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-001/COLLECT_I/RUN_COMPLETE.json": "be158b282db4422e65e18960f7a65be40cf04904d43d6bd03b6fe3df35470854",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-001/COLLECT_CM/DATA.json": "2b1dc63100f964de01a3c0e05fb1dc8185fd65b77fbd6f9570f49173d09df37f",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-001/COLLECT_CM/RUN_COMPLETE.json": "5ee10f724c0c8b224fde44c01c225c6b1438c8d94d9796c701e48fc6f53e44f2",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-002/COLLECT_I/DATA.json": "b4e4707d91153c3c1643cbc09d292dd802207eaac0ba3cd2486da5f07b34197e",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-002/COLLECT_I/RUN_COMPLETE.json": "3fa96aa9447915922829db37e8091d7d0302be60d634123908e5ecce10364db9",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-002/COLLECT_CM/DATA.json": "0526b24046c563d7b4055b1bf0c75a1f7886a6d62cf55dc2453e3bfccdd8a4fe",
+    "/home/lunet/cokt2/uncertainty-learning-components/expanda/transformer_ppo_runs/diagnostics/ccp_icm_multiscale_shared_v1/collection/b20-validation-S8-002/COLLECT_CM/RUN_COMPLETE.json": "995be1ce586915c416e881f63cdd4a954435b762e61f1b24016d4ae24ff02bb9"
+  },
+  "coverage": {
+    "full_budget_ready": true,
+    "trajectory_budget": 50000,
+    "progress_denominator": 50000,
+    "fixed_initial_seeds_preserved": true,
+    "use": "frozen supervised model for full-budget joint evaluation / future PPO",
+    "old_pretrain_weights_used_for_full_fit": false
+  },
+  "feature_version": "multiscale-shared-v1-evaluation-over-50000",
+  "training_instances": {
+    "I": [
+      "b20-training-S0-001",
+      "b20-training-S0-002",
+      "b20-training-S0-003",
+      "b20-training-S0-004",
+      "b20-training-S0-005",
+      "b20-training-S0-006",
+      "b20-training-S1-001",
+      "b20-training-S1-002",
+      "b20-training-S1-003",
+      "b20-training-S1-004",
+      "b20-training-S1-005",
+      "b20-training-S1-006",
+      "b20-training-S2-001",
+      "b20-training-S2-002",
+      "b20-training-S2-003",
+      "b20-training-S2-004",
+      "b20-training-S2-005",
+      "b20-training-S2-006",
+      "b20-training-S3-001",
+      "b20-training-S3-002",
+      "b20-training-S3-003",
+      "b20-training-S3-004",
+      "b20-training-S3-005",
+      "b20-training-S3-006",
+      "b20-training-S4-001",
+      "b20-training-S4-002",
+      "b20-training-S4-003",
+      "b20-training-S4-004",
+      "b20-training-S4-005",
+      "b20-training-S4-006",
+      "b20-training-S5-001",
+      "b20-training-S5-002",
+      "b20-training-S5-003",
+      "b20-training-S5-004",
+      "b20-training-S5-005",
+      "b20-training-S5-006",
+      "b20-training-S6-001",
+      "b20-training-S6-002",
+      "b20-training-S6-003",
+      "b20-training-S6-004",
+      "b20-training-S6-005",
+      "b20-training-S6-006",
+      "b20-training-S7-001",
+      "b20-training-S7-002",
+      "b20-training-S7-003",
+      "b20-training-S7-004",
+      "b20-training-S7-005",
+      "b20-training-S7-006",
+      "b20-training-S8-001",
+      "b20-training-S8-002",
+      "b20-training-S8-003",
+      "b20-training-S8-004",
+      "b20-training-S8-005",
+      "b20-training-S8-006"
+    ],
+    "C": [
+      "b20-training-S0-001",
+      "b20-training-S0-002",
+      "b20-training-S0-003",
+      "b20-training-S0-004",
+      "b20-training-S0-005",
+      "b20-training-S0-006",
+      "b20-training-S1-001",
+      "b20-training-S1-002",
+      "b20-training-S1-003",
+      "b20-training-S1-004",
+      "b20-training-S1-005",
+      "b20-training-S1-006",
+      "b20-training-S2-001",
+      "b20-training-S2-002",
+      "b20-training-S2-003",
+      "b20-training-S2-004",
+      "b20-training-S2-005",
+      "b20-training-S2-006",
+      "b20-training-S3-001",
+      "b20-training-S3-002",
+      "b20-training-S3-003",
+      "b20-training-S3-004",
+      "b20-training-S3-005",
+      "b20-training-S3-006",
+      "b20-training-S4-001",
+      "b20-training-S4-002",
+      "b20-training-S4-003",
+      "b20-training-S4-004",
+      "b20-training-S4-005",
+      "b20-training-S4-006",
+      "b20-training-S5-001",
+      "b20-training-S5-002",
+      "b20-training-S5-003",
+      "b20-training-S5-004",
+      "b20-training-S5-005",
+      "b20-training-S5-006",
+      "b20-training-S6-001",
+      "b20-training-S6-002",
+      "b20-training-S6-003",
+      "b20-training-S6-004",
+      "b20-training-S6-005",
+      "b20-training-S6-006",
+      "b20-training-S7-001",
+      "b20-training-S7-002",
+      "b20-training-S7-003",
+      "b20-training-S7-004",
+      "b20-training-S7-005",
+      "b20-training-S7-006",
+      "b20-training-S8-001",
+      "b20-training-S8-002",
+      "b20-training-S8-003",
+      "b20-training-S8-004",
+      "b20-training-S8-005",
+      "b20-training-S8-006"
+    ],
+    "M": [
+      "b20-training-S0-001",
+      "b20-training-S0-002",
+      "b20-training-S0-003",
+      "b20-training-S0-004",
+      "b20-training-S0-005",
+      "b20-training-S0-006",
+      "b20-training-S1-001",
+      "b20-training-S1-002",
+      "b20-training-S1-003",
+      "b20-training-S1-004",
+      "b20-training-S1-005",
+      "b20-training-S1-006",
+      "b20-training-S2-001",
+      "b20-training-S2-002",
+      "b20-training-S2-003",
+      "b20-training-S2-004",
+      "b20-training-S2-005",
+      "b20-training-S2-006",
+      "b20-training-S3-001",
+      "b20-training-S3-002",
+      "b20-training-S3-003",
+      "b20-training-S3-004",
+      "b20-training-S3-005",
+      "b20-training-S3-006",
+      "b20-training-S4-001",
+      "b20-training-S4-002",
+      "b20-training-S4-003",
+      "b20-training-S4-004",
+      "b20-training-S4-005",
+      "b20-training-S4-006",
+      "b20-training-S5-001",
+      "b20-training-S5-002",
+      "b20-training-S5-003",
+      "b20-training-S5-004",
+      "b20-training-S5-005",
+      "b20-training-S5-006",
+      "b20-training-S6-001",
+      "b20-training-S6-002",
+      "b20-training-S6-003",
+      "b20-training-S6-004",
+      "b20-training-S6-005",
+      "b20-training-S6-006",
+      "b20-training-S7-001",
+      "b20-training-S7-002",
+      "b20-training-S7-003",
+      "b20-training-S7-004",
+      "b20-training-S7-005",
+      "b20-training-S7-006",
+      "b20-training-S8-001",
+      "b20-training-S8-002",
+      "b20-training-S8-003",
+      "b20-training-S8-004",
+      "b20-training-S8-005",
+      "b20-training-S8-006"
+    ]
+  },
+  "validation_instances": {
+    "I": [
+      "b20-validation-S0-001",
+      "b20-validation-S0-002",
+      "b20-validation-S1-001",
+      "b20-validation-S1-002",
+      "b20-validation-S2-001",
+      "b20-validation-S2-002",
+      "b20-validation-S3-001",
+      "b20-validation-S3-002",
+      "b20-validation-S4-001",
+      "b20-validation-S4-002",
+      "b20-validation-S5-001",
+      "b20-validation-S5-002",
+      "b20-validation-S6-001",
+      "b20-validation-S6-002",
+      "b20-validation-S7-001",
+      "b20-validation-S7-002",
+      "b20-validation-S8-001",
+      "b20-validation-S8-002"
+    ],
+    "C": [
+      "b20-validation-S0-001",
+      "b20-validation-S0-002",
+      "b20-validation-S1-001",
+      "b20-validation-S1-002",
+      "b20-validation-S2-001",
+      "b20-validation-S2-002",
+      "b20-validation-S3-001",
+      "b20-validation-S3-002",
+      "b20-validation-S4-001",
+      "b20-validation-S4-002",
+      "b20-validation-S5-001",
+      "b20-validation-S5-002",
+      "b20-validation-S6-001",
+      "b20-validation-S6-002",
+      "b20-validation-S7-001",
+      "b20-validation-S7-002",
+      "b20-validation-S8-001",
+      "b20-validation-S8-002"
+    ],
+    "M": [
+      "b20-validation-S0-001",
+      "b20-validation-S0-002",
+      "b20-validation-S1-001",
+      "b20-validation-S1-002",
+      "b20-validation-S2-001",
+      "b20-validation-S2-002",
+      "b20-validation-S3-001",
+      "b20-validation-S3-002",
+      "b20-validation-S4-001",
+      "b20-validation-S4-002",
+      "b20-validation-S5-001",
+      "b20-validation-S5-002",
+      "b20-validation-S6-001",
+      "b20-validation-S6-002",
+      "b20-validation-S7-001",
+      "b20-validation-S7-002",
+      "b20-validation-S8-001",
+      "b20-validation-S8-002"
+    ]
+  },
+  "environment": {
+    "torch": "1.12.1",
+    "numpy": "1.23.5"
+  },
+  "plan_sha256": "b1c57719c34cbb58ab86e65bf82f2354ef32fedf336686f08659a03aeca07be9",
+  "normalization": {
+    "source": "training-only",
+    "minimum": [
+      2272.9422118249768,
+      1753596.9449542742,
+      0.3228133151462419
+    ],
+    "maximum": [
+      5259.754665832534,
+      6051543.419776083,
+      2.2494979705985103
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "objective_divisor": "total quantity,total quantity,instance horizon",
+    "objective_clipping": false,
+    "outside_reference": "points outside reference contribute no HV; objective coordinates are not clipped",
+    "sources": [
+      {
+        "instance": "b20-training-S0-001",
+        "sha256": "776b16c509321f5e33540a58df120b71d1f2e2e418cdea19bfc54b0a5b41fe3d"
+      },
+      {
+        "instance": "b20-training-S0-001",
+        "sha256": "eb3f88ae58a4694397ee0a0c6ebba11f5ac2537efe26659ab6923c5858315466"
+      },
+      {
+        "instance": "b20-training-S0-002",
+        "sha256": "7817432bd7df1e626295cf87a0e03f975a1fec52dc6a7c897e566e35f208bf5f"
+      },
+      {
+        "instance": "b20-training-S0-002",
+        "sha256": "0a363dd1364cb86f489ee45dd4e1383fc8a26f6d111ba762cbc496bca624273a"
+      },
+      {
+        "instance": "b20-training-S0-003",
+        "sha256": "ec2ec8f3080c4ab4156e87b3b3b9968c2480e80a1d2ae51ab6efac0392799c69"
+      },
+      {
+        "instance": "b20-training-S0-003",
+        "sha256": "ed2f0c1cdad9ec4ad970c490765266f9a30d1ac845cd499a86d07c8688e81fa8"
+      },
+      {
+        "instance": "b20-training-S0-004",
+        "sha256": "829ece2fdcd4006549b12559e43a25c6ba19c04092e747fbb3a8ff84f85acff9"
+      },
+      {
+        "instance": "b20-training-S0-004",
+        "sha256": "3583d9916d549e092f300dbe0b3a6987f515cdc5a5d778db48218bf07d75bb3b"
+      },
+      {
+        "instance": "b20-training-S0-005",
+        "sha256": "e47d0355828a317c4da7ec19bdc5ca2c641207ca6249f598a03537bcc0b7a5b0"
+      },
+      {
+        "instance": "b20-training-S0-005",
+        "sha256": "edf4e5e2c5886ca50d9b2121fea0204ebfba7655a36dd8625ec326c7c8ea86b2"
+      },
+      {
+        "instance": "b20-training-S0-006",
+        "sha256": "83023b1bb998cffd7df64d52ea45d061e1c6c1337b35eb451b4483d9022c4459"
+      },
+      {
+        "instance": "b20-training-S0-006",
+        "sha256": "5a62003579de697c5a9595053ee594780da8ef77c2f9d8b97321bf23eb0c3e91"
+      },
+      {
+        "instance": "b20-training-S1-001",
+        "sha256": "f3e03c875969e96e02a6aa32b5339103a3eff85e067fa99b19ee16022e3a7eaf"
+      },
+      {
+        "instance": "b20-training-S1-001",
+        "sha256": "a6345e62d7deeadcfab1560aee18382b1283633ed139ea911b12f5758603b7fc"
+      },
+      {
+        "instance": "b20-training-S1-002",
+        "sha256": "3d9e9ac616567d77ea4551ffcc204aa72fd5fa577e2d68cd1616e000a9cd60c1"
+      },
+      {
+        "instance": "b20-training-S1-002",
+        "sha256": "4685128b133fcab4424cc98d799757991f8ae674050f770390c2f80a074fe71e"
+      },
+      {
+        "instance": "b20-training-S1-003",
+        "sha256": "30529b2c9dffe67d038710db0d2486f0f750c9104e7e47b6e92519fe04d733ee"
+      },
+      {
+        "instance": "b20-training-S1-003",
+        "sha256": "fe75a5ea550b3e1a12f1a95b77b1744e4765d571a3a57a0124b5c9b04242e207"
+      },
+      {
+        "instance": "b20-training-S1-004",
+        "sha256": "945159e2f35aab7427ab271cbba64ecf4f398a96aed218b1bea34b9ba00770f0"
+      },
+      {
+        "instance": "b20-training-S1-004",
+        "sha256": "ced24d3f1c7d31ee7cd470389ac86d76168a0f618a5547f25a376a90d3dc5af4"
+      },
+      {
+        "instance": "b20-training-S1-005",
+        "sha256": "81afe38a83156e2ba1a58ccb40e6c3a7ef18a3c4dbeb52d6bd529f5aa6c110ae"
+      },
+      {
+        "instance": "b20-training-S1-005",
+        "sha256": "62d56068b8292f256578b0b7008d387bc4e740119e2e999b3a456d3d323be267"
+      },
+      {
+        "instance": "b20-training-S1-006",
+        "sha256": "4b50ac165a085c4d465e0bbc2f4bf8c8febafba6389227e33fa767f0e021f3d4"
+      },
+      {
+        "instance": "b20-training-S1-006",
+        "sha256": "93b278a50d94d4f42d85c644d3831b7967115db37baa4b4f10f5d4b7e76c4ff8"
+      },
+      {
+        "instance": "b20-training-S2-001",
+        "sha256": "98b18dff99a02efd5aa12b44125e51b702ea51ea32dc20d39f462738bac8c185"
+      },
+      {
+        "instance": "b20-training-S2-001",
+        "sha256": "1cd6d3e0b9b4416e8cfa42ed594c150cbbe4edf67e7fae84fb79e14a59bc72d4"
+      },
+      {
+        "instance": "b20-training-S2-002",
+        "sha256": "e22b4cd5b52c3af5d9fca07fadb3660a2f4fb4c57eee4e9b417d7a9bcaa9c609"
+      },
+      {
+        "instance": "b20-training-S2-002",
+        "sha256": "c08dddcef5011bd020bb9296686c362336708850b3051a77b72c79adff9337c3"
+      },
+      {
+        "instance": "b20-training-S2-003",
+        "sha256": "46b1e930e50ca5353eeddcb8f8bf039aa517ce7a89fc4c8485f9ec8475c18586"
+      },
+      {
+        "instance": "b20-training-S2-003",
+        "sha256": "ac129b0f0f6dcdefd0eaf62e34a52b6357ad80a2be0d532f8a9eecb244c72168"
+      },
+      {
+        "instance": "b20-training-S2-004",
+        "sha256": "67020b12c553ef3635853e8bbf41575d04edf1ea7a2631326dbe0cbbbc572748"
+      },
+      {
+        "instance": "b20-training-S2-004",
+        "sha256": "d297ac936bdfd8b7e13e57f5883c18a25043f4c6a842c61ef4b4c94269c3f589"
+      },
+      {
+        "instance": "b20-training-S2-005",
+        "sha256": "07500afe98a5a9aec99a4b0ece44ca50ade1ce6697764d5a206d7ce60edca855"
+      },
+      {
+        "instance": "b20-training-S2-005",
+        "sha256": "29f6fc19262a0a1c0d134eb596790026abb44613d6c6a50e55a678eecb94b6c8"
+      },
+      {
+        "instance": "b20-training-S2-006",
+        "sha256": "582e98b884d9e2ae9f36fc085046f1fcbf6e7c3f9b696ba05787d56861eec69c"
+      },
+      {
+        "instance": "b20-training-S2-006",
+        "sha256": "9a9c1bfabd0d81375b7fb30b2c27dd912300984143718679927e38f81dc13d85"
+      },
+      {
+        "instance": "b20-training-S3-001",
+        "sha256": "b742ec92afd17b4477a6c39350bb0337a8f3b1dac1c263cb49d8fb12460400db"
+      },
+      {
+        "instance": "b20-training-S3-001",
+        "sha256": "fd94cdcd754dc7aa38eb1f3194082b7bd6fd92873cf12db71f486bd23cf0a1fa"
+      },
+      {
+        "instance": "b20-training-S3-002",
+        "sha256": "57c8243de70313a63c3180c18a626f00fba9d7873b2771992cf9fc00dc605fd6"
+      },
+      {
+        "instance": "b20-training-S3-002",
+        "sha256": "a2f9cd7759dc448900ffb6618688e29e00c14826cf2796d25f8703a65a72062e"
+      },
+      {
+        "instance": "b20-training-S3-003",
+        "sha256": "add5b22f25df9b71dcd260aed7dba9c4f5e4d8e4d5f0b690c32b740b5d4dced6"
+      },
+      {
+        "instance": "b20-training-S3-003",
+        "sha256": "4765b56a087aa281060b694ce9be3d836ff284dea5cd55aa4879243a6a9037f4"
+      },
+      {
+        "instance": "b20-training-S3-004",
+        "sha256": "d26567aef187b01c576173c8383cd64c565bec3bbab0e848e2516d082eef1788"
+      },
+      {
+        "instance": "b20-training-S3-004",
+        "sha256": "51a68fe95a106072b739fc05ef1a2645fbe5a15379d64460f77adf739e9a10f7"
+      },
+      {
+        "instance": "b20-training-S3-005",
+        "sha256": "7804e98e48aeec5de0cd39f98d53a39c380df40297cb3a081d577d3468f728f2"
+      },
+      {
+        "instance": "b20-training-S3-005",
+        "sha256": "7b090534fdb819e7c15c3bfd2db1a80ad252d853d7b959ed14926589c5a70816"
+      },
+      {
+        "instance": "b20-training-S3-006",
+        "sha256": "ed5b3b9b08298b40c8e18368bc0c3e85d282d8e739d16146d8b98e1c06633f76"
+      },
+      {
+        "instance": "b20-training-S3-006",
+        "sha256": "4e0b4b85ba4be0bee5daf280cbc3d9723384623c73f47c26b770710deefa37ab"
+      },
+      {
+        "instance": "b20-training-S4-001",
+        "sha256": "e342fa1e897d01680213a4ab756a72f27b94c009dcc8b5a3006b7765705fe2d1"
+      },
+      {
+        "instance": "b20-training-S4-001",
+        "sha256": "11c91ed8162f6af41c0e832a8eb5ec559eff7e0f0a262804b47fa2802c0fc3c7"
+      },
+      {
+        "instance": "b20-training-S4-002",
+        "sha256": "a80acefe13b433a71aabc87f0443853ada7ea9b2bfdfa1f7337388f4cb9918de"
+      },
+      {
+        "instance": "b20-training-S4-002",
+        "sha256": "44410de77a601f32a72dd76b6c649640f6b85d18c358528dd0d041719eac8728"
+      },
+      {
+        "instance": "b20-training-S4-003",
+        "sha256": "e26e0037379853d1f2e83070bf24ab2effe807a9a5ffa0f0f0201bd86661ca36"
+      },
+      {
+        "instance": "b20-training-S4-003",
+        "sha256": "13ccfcfb1a6efa9930b945d1dddb7f154d4f85fee0e77a7a4b81eb2a672f3b7c"
+      },
+      {
+        "instance": "b20-training-S4-004",
+        "sha256": "f8ec8f924d0ed6a38bf0cfdcac40600ed862a03337fbff614913b9a6c9d6ff72"
+      },
+      {
+        "instance": "b20-training-S4-004",
+        "sha256": "659632cb06c4d9304f0088474938f508c555c027f98d88de79f106b491ed1a1d"
+      },
+      {
+        "instance": "b20-training-S4-005",
+        "sha256": "7c6a675d6e9002f71497a5d40fc0f2848108ee783726a0301cd5b3379b158b8a"
+      },
+      {
+        "instance": "b20-training-S4-005",
+        "sha256": "359bd2e7b4881bf700443d4649c2e5ac510f2b07e079ce6f74e48c4bc6280b4d"
+      },
+      {
+        "instance": "b20-training-S4-006",
+        "sha256": "deb312fc00468e286d15d694a1abeac05398a8b4e7f6c59b3b53e6323f240e90"
+      },
+      {
+        "instance": "b20-training-S4-006",
+        "sha256": "6ead98fd005c3352d7482fbc484e95d3a6008d4f57819a0c11de2712a7a7649f"
+      },
+      {
+        "instance": "b20-training-S5-001",
+        "sha256": "2917f124dd6fdfc493180b31f63cf418af60df00b947dba008315e52e07f2ebc"
+      },
+      {
+        "instance": "b20-training-S5-001",
+        "sha256": "a66c9a8f40581bbfe976aa968c3110690d667c2ca800a771c2957121d7b28ad7"
+      },
+      {
+        "instance": "b20-training-S5-002",
+        "sha256": "68a3e816d3892753f1d5e1d4439b2dab5b9a63a46a51d6f81ba68884cf056898"
+      },
+      {
+        "instance": "b20-training-S5-002",
+        "sha256": "9811658fba70bd0846dadbb8bc6cc0ce519e913fc218c907b450cbd2c2e2f676"
+      },
+      {
+        "instance": "b20-training-S5-003",
+        "sha256": "b642b8704db93ca7090477e4a90e578b10029f5b5b428ab3650310b2b62e3c05"
+      },
+      {
+        "instance": "b20-training-S5-003",
+        "sha256": "ca142ed2a146415972bb8249ef785b20b56c865b0440c73ad919dc6629ba238a"
+      },
+      {
+        "instance": "b20-training-S5-004",
+        "sha256": "575235a428ba7cbbb8760ef40fadd46a2ca73bced05ea0068b5f6ea1ffc5e345"
+      },
+      {
+        "instance": "b20-training-S5-004",
+        "sha256": "4688abe974fac2c89cd8a82d2c3bd477fb8d7d00db23947c765b2e566c952ef7"
+      },
+      {
+        "instance": "b20-training-S5-005",
+        "sha256": "cdf83e6d8a9bc726340d9bd96b483b6ff0e53b1e6a05ee51e5905934d7377f0c"
+      },
+      {
+        "instance": "b20-training-S5-005",
+        "sha256": "dc9f9acc6ed2d8afac173db2de307d628741bf6ba04c9a9137ad67585006aa78"
+      },
+      {
+        "instance": "b20-training-S5-006",
+        "sha256": "34b59d0b9c8d433e29243783c9286ab9d5580b2f0eacb3fbb547121ffaa1b001"
+      },
+      {
+        "instance": "b20-training-S5-006",
+        "sha256": "2fd1d63c02c4f519f01a3eb09d1435c2807274956cf5550dc6a6d2f82f4e19b5"
+      },
+      {
+        "instance": "b20-training-S6-001",
+        "sha256": "ab80c2e2ab45b5e8b8b9955202c02bcf60939377278e6bf9a9e3ba771a53aa27"
+      },
+      {
+        "instance": "b20-training-S6-001",
+        "sha256": "0936f1abb340fc2e504417d7b73f0165dc47e9e1763eae180621b7831ab57792"
+      },
+      {
+        "instance": "b20-training-S6-002",
+        "sha256": "ce3181f797e3767d71a22ba59077b1f93f7b55075faf007a78ecc985feed3253"
+      },
+      {
+        "instance": "b20-training-S6-002",
+        "sha256": "a19ee1766748ee451cdc5a162630dc2e09fa6667615a84915fe490148587c013"
+      },
+      {
+        "instance": "b20-training-S6-003",
+        "sha256": "2629054a262f54065ee99307b114ae6d52e17a188ce2c0abbc3ec8ade4d87c5e"
+      },
+      {
+        "instance": "b20-training-S6-003",
+        "sha256": "d4d2b8f4763659e528437902f7d710e3a5756f3fe52cc6c8041ce6c502ed8d41"
+      },
+      {
+        "instance": "b20-training-S6-004",
+        "sha256": "1d68cc17e1cf24b8d00dc4c79a30bd96a13650892001c0dd3f2dbc28a585933a"
+      },
+      {
+        "instance": "b20-training-S6-004",
+        "sha256": "d2f1cc8bcb9363f504094fc0bf22e4e7397b7290dabe3adf1a072dfda6226d53"
+      },
+      {
+        "instance": "b20-training-S6-005",
+        "sha256": "f26fb444395e89b03be18d6f403599fb36f9edf839ebbc0dd3a32e6b60d63ce2"
+      },
+      {
+        "instance": "b20-training-S6-005",
+        "sha256": "f9ccc6257f442cb057d70a0dd094f48406192b0bafc9eb1d67c98b39e42ce801"
+      },
+      {
+        "instance": "b20-training-S6-006",
+        "sha256": "ac007f9a4187051c5cf3516a80260fedcfd267179e86f994c8bdbc526e65798f"
+      },
+      {
+        "instance": "b20-training-S6-006",
+        "sha256": "230b26106b2ff9a326c81b7afb99b593e831b9495b327ca6afdebb2f588ce884"
+      },
+      {
+        "instance": "b20-training-S7-001",
+        "sha256": "b008724e2661e85b7a228ec6f0c8659f1314a79e2a6a2b34330aadd7e8166609"
+      },
+      {
+        "instance": "b20-training-S7-001",
+        "sha256": "46e9109e2378209bf26220ba944d14b2767a1f4ea9d51dd8a20cdd708b968af9"
+      },
+      {
+        "instance": "b20-training-S7-002",
+        "sha256": "96cdb6068d22216b71718edf77219db7171077d00c1d0011b550947e2a8e0e56"
+      },
+      {
+        "instance": "b20-training-S7-002",
+        "sha256": "bc9f70dd2df32b4560f6f5717a50a84deddd7525f91f15a232283c4cec4ab339"
+      },
+      {
+        "instance": "b20-training-S7-003",
+        "sha256": "54eb9ff6e7ace73e227baaf8f5d1f7b792002e187b6eb227f7af56a2155c01cd"
+      },
+      {
+        "instance": "b20-training-S7-003",
+        "sha256": "5c66bdcfde95925dbcccff5b4ed7c63ed2bc38c8f296bca1d11ab7c859dd082d"
+      },
+      {
+        "instance": "b20-training-S7-004",
+        "sha256": "bb30147eb12830a549944eaaa783463773e2d0633fb98a02be1a97cf2200b3f5"
+      },
+      {
+        "instance": "b20-training-S7-004",
+        "sha256": "90ad1d3656645343071c36cf30c1d8c1baacf5d8525de6afd93057015dd2f29a"
+      },
+      {
+        "instance": "b20-training-S7-005",
+        "sha256": "53a56b313010e46268d1df85be88208203cf149164c5ce852ceae47ee22e75cd"
+      },
+      {
+        "instance": "b20-training-S7-005",
+        "sha256": "09f4a23c8d6650b6d0149b6dcf0663c1973da7406393162ad9a169a61118f93e"
+      },
+      {
+        "instance": "b20-training-S7-006",
+        "sha256": "cd6657de091a7a80895eb051936b3fa54e7b2d045e2ac1bbc62330b0ba26f955"
+      },
+      {
+        "instance": "b20-training-S7-006",
+        "sha256": "2ff6ad0fb24a98ef6a362d63ea9ca9d0239a93678746b509991a8ae7415056f7"
+      },
+      {
+        "instance": "b20-training-S8-001",
+        "sha256": "52d107dc773f0eea937e7b6f6990ea2b6db1425be58647627d3899719c0e5d8a"
+      },
+      {
+        "instance": "b20-training-S8-001",
+        "sha256": "70495ace902eec9b159bd02aa66885e64b025df1d7860a08a74769901f457547"
+      },
+      {
+        "instance": "b20-training-S8-002",
+        "sha256": "e5b5048c313e2e094d9b7d0a53fdebd01a6bdd8f6a766dce9e5fcea111498ef2"
+      },
+      {
+        "instance": "b20-training-S8-002",
+        "sha256": "569c78f0c45bc019b8ad4420523d24d78aab023e7f3402ef8f48afeb911bb1ea"
+      },
+      {
+        "instance": "b20-training-S8-003",
+        "sha256": "72da513bb3bb384b521b9b2feb0661cc932955f5dfa72f4a7135d81c3bcf0dfb"
+      },
+      {
+        "instance": "b20-training-S8-003",
+        "sha256": "b697d11f7f0e874bf63fa4fb6388ac6123af84a3574490b94b75ec4c115772c4"
+      },
+      {
+        "instance": "b20-training-S8-004",
+        "sha256": "9ac0ec474e7d7c54e4406f896cc81a15569bcc8d38da8e7ec52af6be9fad4d7a"
+      },
+      {
+        "instance": "b20-training-S8-004",
+        "sha256": "fa57732933de938957cfdb3878fc108c39ab428a4d5798d1a269d38db2fab8d8"
+      },
+      {
+        "instance": "b20-training-S8-005",
+        "sha256": "2a33a93f93e3f5f41b931483be0329306af223ccf519341e2561d05699e2f157"
+      },
+      {
+        "instance": "b20-training-S8-005",
+        "sha256": "791ada55717367e878749174c69dbf5f4c125d5c35403cd03a7670c6133a480f"
+      },
+      {
+        "instance": "b20-training-S8-006",
+        "sha256": "b6af43d972cb1991a20e4df84fdc64d5d3aeb280df1134a740cd427d726b1b75"
+      },
+      {
+        "instance": "b20-training-S8-006",
+        "sha256": "67d926d41ad83acc31f89cad7d814316de9fbd712e909a795bcaabec2604cef7"
+      }
+    ],
+    "feasible_point_count": 2440756
+  },
+  "scalers": {
+    "I": {
+      "feature_version": "multiscale-shared-v1-evaluation-over-50000",
+      "batch": {
+        "mean": [
+          0.049999999999996866,
+          0.08212037037039022,
+          0.5788981481481954,
+          1.0,
+          1.9253279320987655,
+          2561.682635697512,
+          3268701.776637337,
+          189.1781927876568,
+          9343.44866786226,
+          15.184854853423191,
+          4.855645071175706,
+          0.506453887012759,
+          0.25536193335558954,
+          0.2381841796314546,
+          0.3248674816471295
+        ],
+        "std": [
+          0.025181491424970358,
+          0.05290295405746237,
+          0.2760953652948953,
+          1.0,
+          0.7940260216216514,
+          547.7910660771871,
+          1419989.8171646222,
+          74.29607522369913,
+          893.5236925799832,
+          10.691729678485752,
+          1.905926404523994,
+          0.18920884849737266,
+          0.21263917317703052,
+          0.24897406299246305,
+          0.15065099559214365
+        ]
+      },
+      "candidate": {
+        "mean": [
+          5888181.531836581,
+          7514235177.724008,
+          409.93493083113134,
+          0.0803880093286343,
+          24136.46253761023,
+          0.0,
+          0.48997720303008074,
+          0.4847310106317641,
+          0.7970633353323078,
+          0.08314254002495419,
+          0.24478690664725453,
+          1.001662503028561,
+          0.5,
+          0.125,
+          0.125,
+          0.375,
+          0.375
+        ],
+        "std": [
+          2559302.4481257126,
+          3834774212.276829,
+          53.86391606925756,
+          0.33034472180157864,
+          42399.07259596038,
+          1.0,
+          0.3876335861443899,
+          0.3872980564445183,
+          0.31002901342312394,
+          0.2697789752326393,
+          0.38764499027982713,
+          0.6611603076728185,
+          0.32732683535402723,
+          0.33071891388307384,
+          0.33071891388307384,
+          0.4841229182759271,
+          0.4841229182759271
+        ]
+      },
+      "context": {
+        "mean": [
+          0.4193133990353933,
+          0.39500199397259583,
+          0.44701216175556363,
+          0.08232147300115926,
+          0.14121776348291584,
+          0.04081396938442008,
+          0.28629814539996257,
+          0.1878309547506367,
+          0.35183470593580624,
+          0.6070737941897794,
+          0.6956143452966669,
+          0.5463963645484099,
+          0.004100416666666651,
+          0.820083333333335,
+          0.820083333333335
+        ],
+        "std": [
+          0.14472272813191922,
+          0.08231154785001114,
+          0.25087052911759655,
+          0.042586479239423054,
+          0.07187072879052005,
+          0.018839984340218708,
+          0.15540951449870707,
+          0.1230909161077882,
+          0.21418604647037845,
+          0.15029522231320158,
+          0.087848395717516,
+          0.2909984871937851,
+          0.0005134603130287229,
+          0.10269206260574482,
+          0.10269206260574482
+        ]
+      },
+      "clip": 10.0
+    },
+    "C": {
+      "feature_version": "multiscale-shared-v1-evaluation-over-50000",
+      "batch": {
+        "mean": [
+          0.049999999999985764,
+          0.08212037037031533,
+          0.5788981481481418,
+          1.0,
+          1.045751350308642,
+          2248.6810050659274,
+          2464669.6780104362,
+          207.55255928763367,
+          9088.097080419542,
+          19.397978047282297,
+          3.6448785073818666,
+          0.4493636697359087,
+          0.21641529874119314,
+          0.33422103152299565,
+          0.40208086726992703,
+          0.049999999999985764,
+          0.08212037037031533,
+          0.5788981481481418,
+          1.0,
+          1.0455102237654321,
+          2244.4833124954625,
+          2454780.6992224124,
+          207.68624234601458,
+          9083.34327512495,
+          19.491577194529658,
+          3.6309031493085953,
+          0.4468117459505446,
+          0.21738666338752646,
+          0.335801590662033,
+          0.40224577923018107
+        ],
+        "std": [
+          0.02518149142497242,
+          0.05290295405751795,
+          0.27609536529488377,
+          1.0,
+          0.2427672589772021,
+          425.7651498136878,
+          1076218.5965054205,
+          77.18263922768244,
+          819.3478432499533,
+          12.398979353484796,
+          1.5379167268889011,
+          0.23468759662717711,
+          0.2662602696047386,
+          0.2849796339259616,
+          0.19723949573826224,
+          0.02518149142497242,
+          0.05290295405751795,
+          0.27609536529488377,
+          1.0,
+          0.2435661305780675,
+          422.62725535710126,
+          1067963.593246395,
+          77.11568547804065,
+          818.0174752322982,
+          12.411699688683843,
+          1.5228676074092562,
+          0.23557062545821567,
+          0.2674534530373031,
+          0.286095973304914,
+          0.19745681445774954
+        ]
+      },
+      "candidate": {
+        "mean": [
+          1.251134359948791,
+          0.6304053039245463,
+          0.6207290560243237,
+          10325845.285553312,
+          11300327194.79878,
+          415.8679009475052,
+          0.00537449369388329,
+          43679.44150840743,
+          0.0,
+          0.5,
+          0.125,
+          0.125,
+          0.0013503086419753086,
+          0.7157600308641975,
+          0.016300154320987654
+        ],
+        "std": [
+          0.6067021056646721,
+          0.46055120037657726,
+          0.46862701944280355,
+          4190952.8979903227,
+          4830527760.145819,
+          23.788160199429715,
+          0.06651425106823956,
+          73242.01846149402,
+          1.0,
+          0.3273268353540162,
+          0.33071891388307384,
+          0.33071891388307384,
+          0.03672172801689564,
+          0.45105167007950187,
+          0.12662724544939624
+        ]
+      },
+      "context": {
+        "mean": [
+          0.23205877544741094,
+          0.17760179409583235,
+          0.35429414622269634,
+          0.034905805478813834,
+          0.07557281865898334,
+          0.03924585445855467,
+          0.18216298360867766,
+          0.08267530470517243,
+          0.29090776676500796,
+          0.3289524620268106,
+          0.3797385011530662,
+          0.43916589985881405,
+          0.5020591666666667,
+          0.0,
+          1.0
+        ],
+        "std": [
+          0.14327425801432697,
+          0.10333626698215476,
+          0.21059129205287497,
+          0.025070630421658965,
+          0.06393077835443184,
+          0.026138636397264586,
+          0.12691886150560858,
+          0.0512332259848939,
+          0.18718062106947056,
+          0.16162197874179512,
+          0.20596083541459423,
+          0.24898664179178448,
+          0.2991619670113425,
+          1.0,
+          1.0
+        ]
+      },
+      "clip": 10.0
+    },
+    "M": {
+      "feature_version": "multiscale-shared-v1-evaluation-over-50000",
+      "batch": {
+        "mean": [
+          0.049999999999996866,
+          0.08212037037039022,
+          0.5788981481481954,
+          2203.1362575247676,
+          2347033.633395944,
+          211.08573589979073,
+          9067.3732976279,
+          20.02814727232015,
+          1.029200424382716,
+          3.511820105938066,
+          0.4403340919681449,
+          0.21097398191891917,
+          0.34869192611278055,
+          0.4075492486021193
+        ],
+        "std": [
+          0.025181491424970358,
+          0.05290295405746237,
+          0.2760953652948953,
+          379.7629947043541,
+          933993.4620740443,
+          76.30529367255838,
+          799.5157257267306,
+          12.283214085604373,
+          0.18736094934437006,
+          1.3892339534797118,
+          0.23562853870435685,
+          0.26951762430570203,
+          0.28400904365231266,
+          0.1959280980475314
+        ]
+      },
+      "candidate": {
+        "mean": [
+          0.5331809573067122,
+          0.06246656160421205,
+          3.799241356871095,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          1.2204673169622624,
+          1.5367397980483668,
+          0.7496096632274981,
+          1.0000495615561744,
+          0.5596593006480635,
+          1.0087932830911324,
+          1.3344809727567273,
+          0.5547150969787507,
+          0.3083184636815936,
+          0.13696643933962943,
+          0.32900353554237505,
+          1.0237087567127976,
+          1.093795763008307,
+          1.051530757770977,
+          1.0081445840471008,
+          1.0178573846104877,
+          0.9726975741798518,
+          1.1353381340365758,
+          0.504579624577462,
+          0.2070231550374826,
+          0.28839722038505494,
+          0.3403457907725497,
+          -0.19675856024947191,
+          -0.44294403504003627,
+          0.30192109454346405,
+          0.008095022490933157,
+          0.4581980839624125,
+          -0.036095708911298,
+          -0.19914283872015312,
+          -0.0501354724013051,
+          -0.1012953086441339,
+          0.1514307810454407,
+          0.011342255230203638
+        ],
+        "std": [
+          0.2998279969243441,
+          0.030984033375525452,
+          2.535363139850649,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.19115020534144989,
+          0.49491047698966906,
+          0.328123401322596,
+          0.09463512139952555,
+          0.5034491939209241,
+          0.1856599110126994,
+          0.43822766568322175,
+          0.20474643422677405,
+          0.2356202192321407,
+          0.2342138617132256,
+          0.1756378045102203,
+          0.19397904111954667,
+          0.4677217754824512,
+          0.46525771103017993,
+          0.08962211720877858,
+          0.8334513388437451,
+          0.04355490605902691,
+          0.4025373301514431,
+          0.20722102095959533,
+          0.24095301434465033,
+          0.2524657938281274,
+          0.151648370640937,
+          0.2542964107479728,
+          0.6348953144220192,
+          0.48834165144853864,
+          0.10146637315834382,
+          0.9177313472792329,
+          0.19102473175841328,
+          0.5688904084504532,
+          0.25792042132180304,
+          0.3008419964507988,
+          0.28281892172665946,
+          0.20846329339454905
+        ]
+      },
+      "context": {
+        "mean": [
+          0.22129998346527227,
+          0.16448152356297796,
+          0.3491601447110642,
+          0.03312119607983376,
+          0.07294855623051862,
+          0.03909255537542316,
+          0.1758545311983546,
+          0.07705805264760728,
+          0.2879242498019112,
+          0.3144266692942981,
+          0.3623506248081172,
+          0.4337059355177927,
+          0.5248428317901236,
+          0.0,
+          1.0
+        ],
+        "std": [
+          0.13534815484818863,
+          0.08714409517548531,
+          0.2067921079100072,
+          0.023210524885243812,
+          0.06322780558977015,
+          0.026461691471177745,
+          0.12154249684887723,
+          0.03732565602078378,
+          0.18530440461388792,
+          0.14944339185477518,
+          0.1962268933014035,
+          0.24566263367548502,
+          0.2795845291846801,
+          1.0,
+          1.0
+        ]
+      },
+      "clip": 10.0
+    }
+  },
+  "dimensions": {
+    "I": [
+      15,
+      17,
+      15
+    ],
+    "C": [
+      30,
+      15,
+      15
+    ],
+    "M": [
+      14,
+      40,
+      15
+    ]
+  },
+  "target_scales": {
+    "I": 0.010053006045217647,
+    "C": 0.00015895305084461648,
+    "M": 0.0002712196542690631
+  },
+  "selected": {
+    "epoch": 20,
+    "score": 0.16590534867432968,
+    "switch_fraction": 0.44521604938271603,
+    "gates": {
+      "I": {
+        "mean_gain": 0.46744795048210463,
+        "switch_fraction": 0.9768518518518519,
+        "per_configuration": {
+          "S0": -0.009679899894376115,
+          "S1": 0.8213546398818746,
+          "S2": 0.04839815487049649,
+          "S3": 0.0009894230939151217,
+          "S4": 3.306046353926456,
+          "S5": 0.0015365795895949795,
+          "S6": -0.19183753716060742,
+          "S7": 0.23022384003158838,
+          "S8": 0.0
+        },
+        "threshold_scaled": 0.05,
+        "disabled": false,
+        "lambda": 1.0,
+        "mean_raw_gain": 0.004699257072021197,
+        "per_configuration_raw_gain": {
+          "S0": -9.731209215526475e-05,
+          "S1": 0.00825708316000005,
+          "S2": 0.00048654694349048114,
+          "S3": 9.946676344406666e-06,
+          "S4": 0.033235703981792424,
+          "S5": 1.544724390315638e-05,
+          "S6": -0.0019285439207752514,
+          "S7": 0.0023144416555907787,
+          "S8": 0.0
+        }
+      },
+      "C": {
+        "mean_gain": 0.007999221621253947,
+        "switch_fraction": 0.04398148148148148,
+        "per_configuration": {
+          "S0": 0.0,
+          "S1": 0.07164808819328798,
+          "S2": 0.0,
+          "S3": -1.2673076706879352e-06,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S6": 5.04544248360089e-07,
+          "S7": 0.0,
+          "S8": 0.00034566916141986456
+        },
+        "threshold_scaled": 0.0,
+        "disabled": false,
+        "lambda": 1.0,
+        "mean_raw_gain": 1.271500681080534e-06,
+        "per_configuration_raw_gain": {
+          "S0": 0.0,
+          "S1": 1.138868220550727e-05,
+          "S2": 0.0,
+          "S3": -2.0144242061463183e-10,
+          "S4": 0.0,
+          "S5": 0.0,
+          "S6": 8.019884756294003e-11,
+          "S7": 0.0,
+          "S8": 5.4945167790587674e-08
+        }
+      },
+      "M": {
+        "mean_gain": 0.02226887391963048,
+        "switch_fraction": 0.3148148148148148,
+        "per_configuration": {
+          "S0": 0.0006402883435818274,
+          "S1": 4.4060677078423555e-06,
+          "S2": 0.18962978129119418,
+          "S3": 7.4400499055720615e-06,
+          "S4": -0.004739254370919515,
+          "S5": 0.014981012818764301,
+          "S6": 0.0,
+          "S7": -2.913477398946916e-08,
+          "S8": -0.0001037797887859043
+        },
+        "threshold_scaled": 0.0,
+        "disabled": false,
+        "lambda": 0.0,
+        "mean_raw_gain": 6.039756285443535e-06,
+        "per_configuration_raw_gain": {
+          "S0": 1.736587831787743e-07,
+          "S1": 1.195012160407087e-09,
+          "S2": 5.143132372091573e-05,
+          "S3": 2.01788776313383e-09,
+          "S4": -1.2853789319739368e-06,
+          "S5": 4.063145117305656e-06,
+          "S6": 0.0,
+          "S7": -7.901923328631117e-12,
+          "S8": -2.8147118434629356e-08
+        }
+      }
+    }
+  },
+  "checkpoints": [
+    "member_0.pt"
+  ],
+  "checkpoint_sha256": {
+    "member_0.pt": "2d5f2bcee874ff69ecc7b3183f3b0e76c98797c8544f1953252690ed13f78db4"
+  },
+  "training_states": {
+    "I": 2592,
+    "C": 1296,
+    "M": 2592
+  },
+  "validation_states": {
+    "I": 864,
+    "C": 432,
+    "M": 864
+  },
+  "loss": "legal-pair magnitude-weighted softplus ranking; NO regression; task/configuration equal",
+  "new_ppo_updates": 0,
+  "training_seconds_this_invocation": 1433.259836940997,
+  "pilot": {
+    "protocol": "joint-terminal-ppo-paired-pilot-v2",
+    "configurations": [
+      "S0",
+      "S4",
+      "S8"
+    ],
+    "population": 250,
+    "budget": 5000,
+    "milestones": [
+      400,
+      1000,
+      5000
+    ],
+    "updates": 3,
+    "episodes_per_update": 3,
+    "training_seed_base": 140100000,
+    "optimizer_seed_base": 140200000,
+    "optimizer_steps": 48,
+    "minibatch_per_component": 32,
+    "learning_rate": 3e-05,
+    "critic_learning_rate": 0.001,
+    "clip_ratio": 0.2,
+    "target_kl": 0.03,
+    "reference_kl_coefficient": 0.02,
+    "value_coefficient": 0.5,
+    "max_grad_norm": 1.0,
+    "temperature_grid": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "calibration_states_per_component_per_configuration": 48,
+    "calibration_target_mean_top_probability": 0.75,
+    "uniform_exploration": 0.01,
+    "reward": "terminal HV(policy) minus terminal HV(frozen shared greedy), same training instance/algorithm seed/scenarios; frozen training normalization",
+    "advantage": "paired terminal return minus old critic, standardized per component with equal episode weights, fixed for this update",
+    "weighting": "each optimizer step averages I/C/M losses equally; episodes are sampled equally within each component",
+    "critic": "value head learns paired terminal return; critic gradient does not modify shared actor representation",
+    "tuning": "first validation instance of each S0/S4/S8, all three existing validation seeds, greedy deployment",
+    "confirmation": "second validation instance of each S0/S4/S8, same three seeds; chosen nonzero checkpoint evaluated greedy and sampled; sampled u0 control",
+    "selection": "configuration-equal paired final HV delta on tuning; record both overall best including u0 and best nonzero checkpoint; evaluate nonzero regardless of sign",
+    "new_searches": 74,
+    "new_objective_evaluations_maximum": 370000,
+    "first_preview": "two u0 replay checks, six paired training searches, first three tuning comparisons; continue fixed schedule",
+    "final_test_opened": false,
+    "qualification": "Post-hoc development pilot. No screen instances used for fitting or selection. Validation instances have been used in earlier development; confirmation is not a new independent final test. No outcome-driven instance, seed, budget or version changes.",
+    "temperatures": {
+      "I": 0.05,
+      "C": 0.1,
+      "M": 0.25
+    }
+  },
+  "terminal_checkpoint": true,
+  "optimizer_sha256": "f45a9ccef8f9dfffc23767000afdd21d09423871d96a3eccba66cadf31bc2242"
+}

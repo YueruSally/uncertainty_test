@@ -1,0 +1,11 @@
+{
+  "python": "3.10.9 (main, Mar  1 2023, 18:23:06) [GCC 11.2.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "1.23.5",
+    "pandas": "2.2.3",
+    "torch": "1.12.1",
+    "matplotlib": "3.7.0",
+    "openpyxl": "3.1.5"
+  }
+}

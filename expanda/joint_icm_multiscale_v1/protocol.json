@@ -1,0 +1,82 @@
+{
+  "protocol": "icm-multiscale-shared-v1",
+  "baseline_commit": "909315deea0f071cf4a9de1e0e921364519ee53e",
+  "configurations": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "train_per_configuration": 6,
+  "validation_per_configuration": 2,
+  "population": 250,
+  "budget": 50000,
+  "progress_denominator": 50000,
+  "scenario_count": 100,
+  "confidence": 0.9,
+  "pool_size": 8,
+  "extra_label_budget_per_component_instance": 384,
+  "states": {
+    "I": 48,
+    "C": 24,
+    "M": 48
+  },
+  "m_start_generation": 10,
+  "epochs": 30,
+  "batch_size": 64,
+  "width": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "training_seeds": [
+    991001,
+    991002,
+    991003
+  ],
+  "checkpoint_epochs": [
+    10,
+    20,
+    30
+  ],
+  "gate_lambda": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "gate_threshold_scaled": [
+    0.0,
+    0.02,
+    0.05
+  ],
+  "checkpoint_rule": "one shared epoch; per-component validation-only gate; task-normalized gain averaged equally across components and configurations; ties fewer switches then earlier epoch",
+  "milestones": [
+    400,
+    1000,
+    5000,
+    20000,
+    50000
+  ],
+  "workers": 2,
+  "task_timeout_seconds": 14400,
+  "invocation_seconds": 604800,
+  "max_stalled_generations": 20,
+  "source_catalog_default": "/home/lunet/cokt2/uncertainty-transformer-ppo/expanda/transformer_ppo_runs/instances/catalog.json",
+  "source_catalog_digest": "9d4f557c7f61919c88a21df42dc6a2b56b36bcfdb812f8f45a81f9c8bf752087",
+  "ppo": false,
+  "independent_oos": false,
+  "final_test_opened": false,
+  "baseline_file_sha256": "bc0789171b9846851f868905f12a568659252b22e98d14a79f30ed59a4aa73b8",
+  "evaluation_cache": "reuse unchanged inherited individual when exact chromosome/scenario key is still valid; new constructed solutions are charged, even if an earlier unrelated individual had the same chromosome",
+  "training_balance": "each gradient update equally averages 3 components x 9 configurations; same batch-count per minibatch",
+  "loss": "legal-pair magnitude-weighted softplus ranking; no regression term",
+  "scope": "shared supervision only; terminal joint PPO follows a separate stage",
+  "maximum_full_collection_search_evaluations": 3618000,
+  "maximum_extra_label_evaluations": 82944,
+  "historical_feedback_role": "quick pretraining diagnostic only; full model refits scaling and trains fresh using full-budget data",
+  "initialization": "preserve Base capacity and greedy seed slots; Directed/K8 only on remaining random slots",
+  "cm_collection": "one Base trajectory shared by C and M per instance; private audit randomness; rule candidate included"
+}
